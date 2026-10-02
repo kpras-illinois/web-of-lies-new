@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://me5gwk6xcakl"]
+
+[ext_resource type="Script" uid="uid://rc03ert51idw" path="res://test_room_1.gd" id="1_82yi0"]
+[ext_resource type="Texture2D" uid="uid://bxvsvx5n8sclf" path="res://Testing_Rooms/WEB_office.png" id="2_60qff"]
+[ext_resource type="PackedScene" uid="uid://ckopckojylijj" path="res://player.tscn" id="3_60qff"]
+[ext_resource type="Script" uid="uid://6l2sqcr1jyql" path="res://test_door.gd" id="4_2pnme"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_60qff"]
+size = Vector2(401, 688)
+
+[node name="TestRoom1" type="Node2D" unique_id=1668433638]
+script = ExtResource("1_82yi0")
+
+[node name="TestBackground1" type="Sprite2D" parent="." unique_id=1332127272]
+position = Vector2(2602, 541)
+scale = Vector2(2.038, 1.412)
+texture = ExtResource("2_60qff")
+
+[node name="Player" parent="." unique_id=1836776631 instance=ExtResource("3_60qff")]
+
+[node name="TestDoorRoom1" type="Area2D" parent="." unique_id=1304932029]
+script = ExtResource("4_2pnme")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestDoorRoom1" unique_id=1022635628]
+position = Vector2(4624, 542)
+shape = SubResource("RectangleShape2D_60qff")
+
+[connection signal="body_entered" from="TestDoorRoom1" to="TestDoorRoom1" method="_on_body_entered"]
+[connection signal="body_exited" from="TestDoorRoom1" to="TestDoorRoom1" method="_on_body_exited"]
