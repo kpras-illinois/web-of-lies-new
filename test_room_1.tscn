@@ -3,10 +3,22 @@
 [ext_resource type="Script" uid="uid://rc03ert51idw" path="res://test_room_1.gd" id="1_82yi0"]
 [ext_resource type="Texture2D" uid="uid://bxvsvx5n8sclf" path="res://Testing_Rooms/WEB_office.png" id="2_60qff"]
 [ext_resource type="PackedScene" uid="uid://ckopckojylijj" path="res://player.tscn" id="3_60qff"]
-[ext_resource type="Script" uid="uid://6l2sqcr1jyql" path="res://test_door.gd" id="4_2pnme"]
+[ext_resource type="Script" uid="uid://xhhpbwk0ey67" path="res://DoorInteractable.gd" id="4_fwmqo"]
+[ext_resource type="Script" uid="uid://c617iu24cb4im" path="res://PrintInteractable.gd" id="5_hy5gg"]
+[ext_resource type="Texture2D" uid="uid://dlxufwaje1j26" path="res://icon.svg" id="6_2musr"]
+[ext_resource type="Script" uid="uid://5l3dfpvh18vu" path="res://InteractableMouse.gd" id="7_u8eca"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_riqys"]
+size = Vector2(514, 992)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_60qff"]
-size = Vector2(401, 688)
+size = Vector2(491.5, 1245)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bhunq"]
+size = Vector2(241.25, 238.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hy5gg"]
+size = Vector2(241.25, 238.5)
 
 [node name="TestRoom1" type="Node2D" unique_id=1668433638]
 script = ExtResource("1_82yi0")
@@ -16,14 +28,67 @@ position = Vector2(2602, 541)
 scale = Vector2(2.038, 1.412)
 texture = ExtResource("2_60qff")
 
-[node name="Player" parent="." unique_id=1836776631 instance=ExtResource("3_60qff")]
+[node name="Player" parent="." unique_id=1836776631 node_paths=PackedStringArray("interaction_area") instance=ExtResource("3_60qff")]
+position = Vector2(276, 610)
+interaction_area = NodePath("InteractionArea")
 
-[node name="TestDoorRoom1" type="Area2D" parent="." unique_id=1304932029]
-script = ExtResource("4_2pnme")
+[node name="InteractionArea" type="Area2D" parent="Player" unique_id=1100998349]
+collision_layer = 0
+collision_mask = 2
+input_pickable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TestDoorRoom1" unique_id=1022635628]
-position = Vector2(4624, 542)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/InteractionArea" unique_id=897467959]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_riqys")
+
+[node name="InteractionObjectDoor" type="Area2D" parent="." unique_id=1304932029]
+collision_layer = 2
+collision_mask = 0
+input_pickable = false
+script = ExtResource("4_fwmqo")
+roomName = "test_room_2"
+interaction_name = "Door"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionObjectDoor" unique_id=1022635628]
+position = Vector2(4947, 540)
 shape = SubResource("RectangleShape2D_60qff")
+debug_color = Color(2.3102762e-06, 0.6421039, 0.3285573, 0.41960785)
 
-[connection signal="body_entered" from="TestDoorRoom1" to="TestDoorRoom1" method="_on_body_entered"]
-[connection signal="body_exited" from="TestDoorRoom1" to="TestDoorRoom1" method="_on_body_exited"]
+[node name="InteractionObjectP" type="Area2D" parent="." unique_id=1371241175]
+position = Vector2(1715, 768)
+collision_layer = 2
+collision_mask = 0
+input_pickable = false
+script = ExtResource("5_hy5gg")
+output_text = "Player interaction test"
+interaction_name = "test interaction by player"
+
+[node name="Sprite2D" type="Sprite2D" parent="InteractionObjectP" unique_id=694361382]
+position = Vector2(-0.5, 4.500061)
+scale = Vector2(1.8671875, 1.8359375)
+texture = ExtResource("6_2musr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionObjectP" unique_id=1736220779]
+position = Vector2(-0.25, 4.5)
+shape = SubResource("RectangleShape2D_bhunq")
+debug_color = Color(0.7008361, 0.42566875, 0.6531016, 0.41960785)
+
+[node name="InteractionObjectP2" type="Area2D" parent="." unique_id=912054372]
+position = Vector2(722, 236)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("7_u8eca")
+test_output = "Mouse Test"
+
+[node name="Sprite2D" type="Sprite2D" parent="InteractionObjectP2" unique_id=1689748205]
+position = Vector2(-0.5, 4.500061)
+scale = Vector2(1.8671875, 1.8359375)
+texture = ExtResource("6_2musr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionObjectP2" unique_id=1992016493]
+position = Vector2(-0.25, 4.5)
+shape = SubResource("RectangleShape2D_hy5gg")
+debug_color = Color(0.7008361, 0.42566875, 0.6531016, 0.41960785)
+
+[connection signal="body_entered" from="InteractionObjectDoor" to="InteractionObjectDoor" method="_on_body_entered"]
+[connection signal="body_exited" from="InteractionObjectDoor" to="InteractionObjectDoor" method="_on_body_exited"]

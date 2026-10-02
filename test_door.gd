@@ -15,4 +15,5 @@ func _on_body_exited(_body):
 func _process(_delta):
 	if entered == true:
 		if Input.is_action_just_pressed("Interact"):
+			print("door opened")
 			get_tree().change_scene_to_file("res://test_room_2.tscn")
