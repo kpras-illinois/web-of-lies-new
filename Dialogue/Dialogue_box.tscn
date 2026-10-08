@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c8wvg1v6xh2r7"]
+
+[ext_resource type="PackedScene" uid="uid://bkd037bbpbump" path="res://Dialogue/dialogue_script.tscn" id="1_is2ct"]
+
+[node name="DialogueBase" type="Node2D" unique_id=1702759543]
+
+[node name="DialogueScript" parent="." unique_id=980643140 instance=ExtResource("1_is2ct")]
+offset_left = -572.0
+offset_top = 172.0
+offset_right = -572.0
+offset_bottom = 172.0
