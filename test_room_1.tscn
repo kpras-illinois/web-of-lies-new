@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bxvsvx5n8sclf" path="res://Testing_Rooms/WEB_office.png" id="2_60qff"]
 [ext_resource type="PackedScene" uid="uid://ckopckojylijj" path="res://player.tscn" id="3_60qff"]
 [ext_resource type="Script" uid="uid://6l2sqcr1jyql" path="res://test_door.gd" id="4_2pnme"]
+[ext_resource type="PackedScene" uid="uid://bki124eqmpcqg" path="res://ui.tscn" id="5_v4pj3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_60qff"]
 size = Vector2(401, 688)
@@ -24,6 +25,10 @@ script = ExtResource("4_2pnme")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TestDoorRoom1" unique_id=1022635628]
 position = Vector2(4624, 542)
 shape = SubResource("RectangleShape2D_60qff")
+
+[node name="UICanvasLayer" type="CanvasLayer" parent="." unique_id=794855588]
+
+[node name="UI" parent="UICanvasLayer" unique_id=1540289603 instance=ExtResource("5_v4pj3")]
 
 [connection signal="body_entered" from="TestDoorRoom1" to="TestDoorRoom1" method="_on_body_entered"]
 [connection signal="body_exited" from="TestDoorRoom1" to="TestDoorRoom1" method="_on_body_exited"]

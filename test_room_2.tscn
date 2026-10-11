@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://di5kpbpyparor" path="res://test_room_2.gd" id="1_is0th"]
 [ext_resource type="PackedScene" uid="uid://ckopckojylijj" path="res://player.tscn" id="3_fqyo8"]
 [ext_resource type="Script" uid="uid://cpx1au3ukuu6u" path="res://test_door_room_2.gd" id="4_mfg25"]
+[ext_resource type="PackedScene" uid="uid://bki124eqmpcqg" path="res://ui.tscn" id="5_nwn8e"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_78qyl"]
 radius = 149.40549
@@ -24,6 +25,10 @@ script = ExtResource("4_mfg25")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TestDoorRoom2" unique_id=556911660]
 position = Vector2(1283, 625)
 shape = SubResource("CircleShape2D_78qyl")
+
+[node name="UICanvasLayer" type="CanvasLayer" parent="." unique_id=673719852]
+
+[node name="UI" parent="UICanvasLayer" unique_id=1540289603 instance=ExtResource("5_nwn8e")]
 
 [connection signal="body_entered" from="TestDoorRoom2" to="TestDoorRoom2" method="_on_body_entered"]
 [connection signal="body_exited" from="TestDoorRoom2" to="TestDoorRoom2" method="_on_body_exited"]
