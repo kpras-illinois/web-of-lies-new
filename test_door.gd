@@ -11,8 +11,11 @@ func _on_body_entered(_body: PhysicsBody2D):
 func _on_body_exited(_body):
 	entered = false # door is not being contacted
 
-#
+# moves from room 1 to room 2
 func _process(_delta):
 	if entered == true:
 		if Input.is_action_just_pressed("Interact"):
+			# plays fading animation before moving
+			SceneTransition.transition()
+			await SceneTransition.on_transition_finished
 			get_tree().change_scene_to_file("res://test_room_2.tscn")
