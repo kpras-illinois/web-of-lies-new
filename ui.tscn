@@ -41,7 +41,7 @@ layout_mode = 2
 theme_override_constants/separation = 10
 
 [node name="ToggleMenuButton" type="Button" parent="PopupMenu/BaseMenuContainer/BaseMenuScreen/MenuAndToggle" unique_id=2074574057]
-custom_minimum_size = Vector2(75, 15)
+custom_minimum_size = Vector2(100, 20)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -84,7 +84,7 @@ size_flags_vertical = 8
 theme_override_constants/separation = 23
 
 [node name="ToggleMenuButton" type="Button" parent="PopupMenu/BaseMenuButtonContainer" unique_id=163930132]
-custom_minimum_size = Vector2(75, 15)
+custom_minimum_size = Vector2(100, 20)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
