@@ -12,7 +12,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PopupMenu" type="MarginContainer" parent="." unique_id=1306787920 node_paths=PackedStringArray("menu_screen", "open_menu_screen", "fast_travel_screen", "evidence_screen")]
+[node name="PopupMenu" type="MarginContainer" parent="." unique_id=1306787920 node_paths=PackedStringArray("menu_screen", "open_menu_screen", "fast_travel_screen", "evidence_screen", "evidence_page_0", "evidence_page_1")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,7 +23,9 @@ script = ExtResource("1_m6e0p")
 menu_screen = NodePath("BaseMenuContainer")
 open_menu_screen = NodePath("BaseMenuButtonContainer")
 fast_travel_screen = NodePath("FastTravelContainer")
-evidence_screen = NodePath("EvidenceMenuContainer")
+evidence_screen = NodePath("EvidenceMenuAndButtonsContainer")
+evidence_page_0 = NodePath("EvidenceMenuAndButtonsContainer/EvidenceMenuContainer/EvidencePage0")
+evidence_page_1 = NodePath("EvidenceMenuAndButtonsContainer/EvidenceMenuContainer/EvidencePage1")
 
 [node name="BaseMenuContainer" type="VBoxContainer" parent="PopupMenu" unique_id=1047635056]
 visible = false
@@ -178,13 +180,25 @@ theme_override_fonts/font = ExtResource("3_27fn8")
 theme_override_font_sizes/font_size = 35
 text = "test room 2"
 
-[node name="EvidenceMenuContainer" type="MarginContainer" parent="PopupMenu" unique_id=582827895]
+[node name="EvidenceMenuAndButtonsContainer" type="HBoxContainer" parent="PopupMenu" unique_id=283235307]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_constants/separation = 20
 
-[node name="NinePatchRect" type="NinePatchRect" parent="PopupMenu/EvidenceMenuContainer" unique_id=310539816]
+[node name="EvidenceMenuLeftButton" type="Button" parent="PopupMenu/EvidenceMenuAndButtonsContainer" unique_id=736985107]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="EvidenceMenuContainer" type="MarginContainer" parent="PopupMenu/EvidenceMenuAndButtonsContainer" unique_id=582827895]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="EvidencePage0" type="NinePatchRect" parent="PopupMenu/EvidenceMenuAndButtonsContainer/EvidenceMenuContainer" unique_id=310539816]
 custom_minimum_size = Vector2(600, 750)
 layout_mode = 2
 texture = ExtResource("1_fyqef")
@@ -194,19 +208,36 @@ patch_margin_top = 8
 patch_margin_right = 8
 patch_margin_bottom = 8
 
-[node name="EvidenceMenuToggleButtonContainer" type="VBoxContainer" parent="PopupMenu/EvidenceMenuContainer" unique_id=1481749686]
+[node name="EvidencePage1" type="NinePatchRect" parent="PopupMenu/EvidenceMenuAndButtonsContainer/EvidenceMenuContainer" unique_id=972062390]
+visible = false
+custom_minimum_size = Vector2(600, 750)
+layout_mode = 2
+texture = ExtResource("1_fyqef")
+region_rect = Rect2(399, 375, 158, 142)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="EvidenceMenuToggleButtonContainer" type="VBoxContainer" parent="PopupMenu/EvidenceMenuAndButtonsContainer/EvidenceMenuContainer" unique_id=1481749686]
 layout_mode = 2
 
-[node name="EvidenceMenuToggleButtonMarginContainer" type="MarginContainer" parent="PopupMenu/EvidenceMenuContainer/EvidenceMenuToggleButtonContainer" unique_id=410642888]
+[node name="EvidenceMenuToggleButtonMarginContainer" type="MarginContainer" parent="PopupMenu/EvidenceMenuAndButtonsContainer/EvidenceMenuContainer/EvidenceMenuToggleButtonContainer" unique_id=410642888]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 theme_override_constants/margin_top = -75
 theme_override_constants/margin_right = -75
 
-[node name="EvidenceSheetToggleButton" type="Button" parent="PopupMenu/EvidenceMenuContainer/EvidenceMenuToggleButtonContainer/EvidenceMenuToggleButtonMarginContainer" unique_id=577555798]
+[node name="EvidenceSheetToggleButton" type="Button" parent="PopupMenu/EvidenceMenuAndButtonsContainer/EvidenceMenuContainer/EvidenceMenuToggleButtonContainer/EvidenceMenuToggleButtonMarginContainer" unique_id=577555798]
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
+
+[node name="EvidenceMenuRightButton" type="Button" parent="PopupMenu/EvidenceMenuAndButtonsContainer" unique_id=1431923547]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [connection signal="pressed" from="PopupMenu/BaseMenuContainer/BaseMenuScreen/MenuAndToggle/ToggleMenuButton" to="PopupMenu" method="_on_toggle_menu_button_pressed"]
 [connection signal="pressed" from="PopupMenu/BaseMenuContainer/BaseMenuScreen/MenuAndToggle/NinePatchRect/ButtonMargins/ButtonContainer/TopButtonContainer/TravelToToggleButton" to="PopupMenu" method="_on_travel_to_toggle_button_pressed"]
@@ -215,4 +246,6 @@ layout_mode = 2
 [connection signal="pressed" from="PopupMenu/FastTravelContainer/TravelToToggleButtonContainer/TravelToToggleButtonMarginContainer/TravelToToggleButton" to="PopupMenu" method="_on_travel_to_toggle_button_pressed"]
 [connection signal="pressed" from="PopupMenu/FastTravelContainer/TravelToPlacesMarginContainer/TravelToPlacesContainer/TravelToTestRoom1" to="PopupMenu" method="_on_travel_to_test_room_1_pressed"]
 [connection signal="pressed" from="PopupMenu/FastTravelContainer/TravelToPlacesMarginContainer/TravelToPlacesContainer/TravelToTestRoom2" to="PopupMenu" method="_on_travel_to_test_room_2_pressed"]
-[connection signal="pressed" from="PopupMenu/EvidenceMenuContainer/EvidenceMenuToggleButtonContainer/EvidenceMenuToggleButtonMarginContainer/EvidenceSheetToggleButton" to="PopupMenu" method="_on_evidence_sheet_toggle_button_pressed"]
+[connection signal="pressed" from="PopupMenu/EvidenceMenuAndButtonsContainer/EvidenceMenuLeftButton" to="PopupMenu" method="_on_evidence_menu_left_button_pressed"]
+[connection signal="pressed" from="PopupMenu/EvidenceMenuAndButtonsContainer/EvidenceMenuContainer/EvidenceMenuToggleButtonContainer/EvidenceMenuToggleButtonMarginContainer/EvidenceSheetToggleButton" to="PopupMenu" method="_on_evidence_sheet_toggle_button_pressed"]
+[connection signal="pressed" from="PopupMenu/EvidenceMenuAndButtonsContainer/EvidenceMenuRightButton" to="PopupMenu" method="_on_evidence_menu_right_button_pressed"]
