@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ckopckojylijj" path="res://player.tscn" id="3_fqyo8"]
 [ext_resource type="Script" uid="uid://cpx1au3ukuu6u" path="res://test_door_room_2.gd" id="4_mfg25"]
 [ext_resource type="PackedScene" uid="uid://bki124eqmpcqg" path="res://ui.tscn" id="5_nwn8e"]
+[ext_resource type="AudioStream" uid="uid://cua1h46sp6xhw" path="res://Background_Music/Welcome to the Morgue.mp3" id="6_e050a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_78qyl"]
 radius = 149.40549
@@ -29,6 +30,10 @@ shape = SubResource("CircleShape2D_78qyl")
 [node name="UICanvasLayer" type="CanvasLayer" parent="." unique_id=673719852]
 
 [node name="UI" parent="UICanvasLayer" unique_id=1540289603 instance=ExtResource("5_nwn8e")]
+
+[node name="TestRoom2Audio" type="AudioStreamPlayer" parent="." unique_id=2039416286]
+stream = ExtResource("6_e050a")
+autoplay = true
 
 [connection signal="body_entered" from="TestDoorRoom2" to="TestDoorRoom2" method="_on_body_entered"]
 [connection signal="body_exited" from="TestDoorRoom2" to="TestDoorRoom2" method="_on_body_exited"]
