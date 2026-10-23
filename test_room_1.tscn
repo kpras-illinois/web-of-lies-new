@@ -13,7 +13,7 @@ size = Vector2(401, 688)
 script = ExtResource("1_82yi0")
 
 [node name="TestBackground1" type="Sprite2D" parent="." unique_id=1332127272]
-position = Vector2(2602, 541)
+position = Vector2(2630.0002, 571)
 scale = Vector2(2.038, 1.412)
 texture = ExtResource("2_60qff")
 

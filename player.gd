@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+# makes script globally recognized
+class_name Player
+
 # defines the walking speed of the player character (PC)
 @export var speed := 1000
 
