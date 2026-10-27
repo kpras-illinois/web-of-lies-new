@@ -18,4 +18,4 @@ func _process(_delta):
 			# plays fading animation before moving
 			SceneTransition.transition()
 			await SceneTransition.on_transition_finished
-			get_tree().change_scene_to_file("res://test_room_2.tscn")
+			get_tree().change_scene_to_file("res://police_station_corridor.tscn")

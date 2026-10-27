@@ -42,12 +42,12 @@ func _on_travel_to_web_office_pressed() -> void:
 	await SceneTransition.on_transition_finished
 	get_tree().change_scene_to_file("res://web_office.tscn")
 
-# on pressing takes player to test room 2
-func _on_travel_to_test_room_2_pressed() -> void:
+# on pressing takes player to police station corridor
+func _on_travel_to_police_station_corridor_pressed() -> void:
 	# plays fading animation before moving
 	SceneTransition.transition()
 	await SceneTransition.on_transition_finished
-	get_tree().change_scene_to_file("res://test_room_2.tscn")
+	get_tree().change_scene_to_file("res://police_station_corridor.tscn")
 
 # when pressed, decreases page by 1, then moves to the correct page
 func _on_evidence_menu_left_button_pressed() -> void:

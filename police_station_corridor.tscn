@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://dhwxoih377mk6"]
+
+[ext_resource type="Script" uid="uid://di5kpbpyparor" path="res://test_room_2.gd" id="1_7mga5"]
+[ext_resource type="Texture2D" uid="uid://d0jilta7hrhn" path="res://Room_Backgrounds/pz_Final_Police_Station_Corridor_Sheet.png" id="2_vpqoh"]
+[ext_resource type="PackedScene" uid="uid://ckopckojylijj" path="res://player.tscn" id="3_5k25i"]
+[ext_resource type="Script" uid="uid://cpx1au3ukuu6u" path="res://test_door_room_2.gd" id="4_6edud"]
+[ext_resource type="PackedScene" uid="uid://bki124eqmpcqg" path="res://ui.tscn" id="5_pkhbd"]
+[ext_resource type="AudioStream" uid="uid://cua1h46sp6xhw" path="res://Background_Music/Welcome to the Morgue.mp3" id="6_ogits"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_78qyl"]
+radius = 149.40549
+
+[node name="PoliceStationCorridor" type="Node2D" unique_id=1430094036]
+script = ExtResource("1_7mga5")
+
+[node name="PoliceStationCorridorBackground" type="Sprite2D" parent="." unique_id=532287219]
+position = Vector2(961, 603.5)
+scale = Vector2(2.9, 1.816)
+texture = ExtResource("2_vpqoh")
+region_enabled = true
+region_rect = Rect2(25, 11, 2944, 679)
+
+[node name="Player" parent="." unique_id=1836776631 instance=ExtResource("3_5k25i")]
+
+[node name="TestDoorRoom2" type="Area2D" parent="." unique_id=720812547]
+script = ExtResource("4_6edud")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestDoorRoom2" unique_id=556911660]
+position = Vector2(1283, 625)
+shape = SubResource("CircleShape2D_78qyl")
+
+[node name="UICanvasLayer" type="CanvasLayer" parent="." unique_id=673719852]
+
+[node name="UI" parent="UICanvasLayer" unique_id=1540289603 instance=ExtResource("5_pkhbd")]
+
+[node name="TestRoom2Audio" type="AudioStreamPlayer" parent="." unique_id=2039416286]
+stream = ExtResource("6_ogits")
+autoplay = true
+
+[connection signal="body_entered" from="TestDoorRoom2" to="TestDoorRoom2" method="_on_body_entered"]
+[connection signal="body_exited" from="TestDoorRoom2" to="TestDoorRoom2" method="_on_body_exited"]
