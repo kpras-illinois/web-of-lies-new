@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Welcome to the Morgue.mp3-f6bc4e9bbc382f8d646
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

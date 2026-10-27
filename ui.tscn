@@ -28,7 +28,6 @@ evidence_page_0 = NodePath("EvidenceMenuAndButtonsContainer/EvidenceMenuContaine
 evidence_page_1 = NodePath("EvidenceMenuAndButtonsContainer/EvidenceMenuContainer/EvidencePage1")
 
 [node name="BaseMenuContainer" type="VBoxContainer" parent="PopupMenu" unique_id=1047635056]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
@@ -89,6 +88,10 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="EvidenceSheetToggleButton" type="Button" parent="PopupMenu/BaseMenuContainer/BaseMenuScreen/MenuAndToggle/NinePatchRect/ButtonMargins/ButtonContainer/TopButtonContainer" unique_id=758070594]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="SettingsToggleButton" type="Button" parent="PopupMenu/BaseMenuContainer/BaseMenuScreen/MenuAndToggle/NinePatchRect/ButtonMargins/ButtonContainer/TopButtonContainer" unique_id=178474175]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 
