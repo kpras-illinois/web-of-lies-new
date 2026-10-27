@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="WebOfLies-Godot"
-run/main_scene="uid://me5gwk6xcakl"
+run/main_scene="uid://bhdql2mqvrk5l"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 

@@ -35,12 +35,12 @@ func _on_travel_to_toggle_button_pressed() -> void:
 	toggle_visibility(fast_travel_screen)
 	toggle_visibility(menu_screen)
 
-# on pressing takes player to test room 1
-func _on_travel_to_test_room_1_pressed() -> void:
+# on pressing takes player to WEB's office
+func _on_travel_to_web_office_pressed() -> void:
 	# plays fading animation before moving
 	SceneTransition.transition()
 	await SceneTransition.on_transition_finished
-	get_tree().change_scene_to_file("res://test_room_1.tscn")
+	get_tree().change_scene_to_file("res://web_office.tscn")
 
 # on pressing takes player to test room 2
 func _on_travel_to_test_room_2_pressed() -> void:
