@@ -8,7 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://cm4q1xmsur701" path="res://Background_Music/MP3 Tutorial Music.mp3" id="6_0syv5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_60qff"]
-size = Vector2(401, 688)
+size = Vector2(401, 1218)
 
 [node name="WebOffice" type="Node2D" unique_id=1668433638]
 script = ExtResource("1_v504c")
@@ -24,7 +24,7 @@ texture = ExtResource("2_v504c")
 script = ExtResource("4_jb0ai")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TestDoorRoom1" unique_id=1022635628]
-position = Vector2(4624, 542)
+position = Vector2(5797, 604)
 shape = SubResource("RectangleShape2D_60qff")
 
 [node name="UICanvasLayer" type="CanvasLayer" parent="." unique_id=794855588]

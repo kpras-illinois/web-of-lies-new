@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bjcexw8wq486j"]
+
+[ext_resource type="Texture2D" uid="uid://dlxufwaje1j26" path="res://icon.svg" id="1_ua7ss"]
+[ext_resource type="PackedScene" uid="uid://ckopckojylijj" path="res://player.tscn" id="2_w6og8"]
+[ext_resource type="PackedScene" uid="uid://bki124eqmpcqg" path="res://ui.tscn" id="3_72sf4"]
+
+[node name="MainMorgue" type="Node2D" unique_id=855188080]
+
+[node name="MainMorgueBackground" type="Sprite2D" parent="." unique_id=2049266074]
+position = Vector2(957, 604.50006)
+scale = Vector2(17.640623, 11.1640625)
+texture = ExtResource("1_ua7ss")
+
+[node name="Player" parent="." unique_id=1836776631 instance=ExtResource("2_w6og8")]
+
+[node name="UICanvasLayer" type="CanvasLayer" parent="." unique_id=1895332578]
+
+[node name="UI" parent="UICanvasLayer" unique_id=1540289603 instance=ExtResource("3_72sf4")]

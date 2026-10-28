@@ -147,6 +147,7 @@ theme_override_font_sizes/font_size = 50
 text = "Travel to:"
 
 [node name="TravelToToggleButtonContainer" type="VBoxContainer" parent="PopupMenu/FastTravelContainer" unique_id=1548737891]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
@@ -183,6 +184,13 @@ size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("3_27fn8")
 theme_override_font_sizes/font_size = 35
 text = "Police Station"
+
+[node name="TravelToMorgue" type="Button" parent="PopupMenu/FastTravelContainer/TravelToPlacesMarginContainer/TravelToPlacesContainer" unique_id=526544981]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("3_27fn8")
+theme_override_font_sizes/font_size = 35
+text = "Morgue"
 
 [node name="EvidenceMenuAndButtonsContainer" type="HBoxContainer" parent="PopupMenu" unique_id=283235307]
 visible = false
@@ -250,6 +258,7 @@ size_flags_vertical = 4
 [connection signal="pressed" from="PopupMenu/FastTravelContainer/TravelToToggleButtonContainer/TravelToToggleButtonMarginContainer/TravelToToggleButton" to="PopupMenu" method="_on_travel_to_toggle_button_pressed"]
 [connection signal="pressed" from="PopupMenu/FastTravelContainer/TravelToPlacesMarginContainer/TravelToPlacesContainer/TravelToWebOffice" to="PopupMenu" method="_on_travel_to_web_office_pressed"]
 [connection signal="pressed" from="PopupMenu/FastTravelContainer/TravelToPlacesMarginContainer/TravelToPlacesContainer/TravelToPoliceStationCorridor" to="PopupMenu" method="_on_travel_to_police_station_corridor_pressed"]
+[connection signal="pressed" from="PopupMenu/FastTravelContainer/TravelToPlacesMarginContainer/TravelToPlacesContainer/TravelToMorgue" to="PopupMenu" method="_on_travel_to_morgue_pressed"]
 [connection signal="pressed" from="PopupMenu/EvidenceMenuAndButtonsContainer/EvidenceMenuLeftButton" to="PopupMenu" method="_on_evidence_menu_left_button_pressed"]
 [connection signal="pressed" from="PopupMenu/EvidenceMenuAndButtonsContainer/EvidenceMenuContainer/EvidenceMenuToggleButtonContainer/EvidenceMenuToggleButtonMarginContainer/EvidenceSheetToggleButton" to="PopupMenu" method="_on_evidence_sheet_toggle_button_pressed"]
 [connection signal="pressed" from="PopupMenu/EvidenceMenuAndButtonsContainer/EvidenceMenuRightButton" to="PopupMenu" method="_on_evidence_menu_right_button_pressed"]
