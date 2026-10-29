@@ -1,17 +1,34 @@
 [gd_scene format=3 uid="uid://dq1p0kyif7fes"]
 
-[ext_resource type="Texture2D" uid="uid://dlxufwaje1j26" path="res://icon.svg" id="1_3fg7s"]
+[ext_resource type="Texture2D" uid="uid://4ua7y7wt8urn" path="res://Room_Backgrounds/Morgue_sheet.png" id="1_yxq8r"]
 [ext_resource type="PackedScene" uid="uid://ckopckojylijj" path="res://player.tscn" id="2_gpaps"]
 [ext_resource type="PackedScene" uid="uid://bki124eqmpcqg" path="res://ui.tscn" id="3_yxq8r"]
+[ext_resource type="Script" uid="uid://buvaldntfyk7w" path="res://Rooms/transition_to_main_morgue.gd" id="4_f0b2h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_78qyl"]
+size = Vector2(121.5, 1203)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yxq8r"]
+size = Vector2(557, 1203)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7eu7v"]
+size = Vector2(242, 1200)
 
 [node name="MorgueReception" type="Node2D" unique_id=1943143684]
 
 [node name="MorgueReceptionBackground" type="Sprite2D" parent="." unique_id=457889054]
-position = Vector2(955.50006, 613.5)
-scale = Vector2(14.710938, 9.4140625)
-texture = ExtResource("1_3fg7s")
+position = Vector2(3905, 600.00006)
+scale = Vector2(2.75, 1.707)
+texture = ExtResource("1_yxq8r")
+region_enabled = true
+region_rect = Rect2(50, 27, 2920, 703)
 
 [node name="PlayerCamera" type="Camera2D" parent="." unique_id=2086460718]
+limit_left = -109
+limit_top = 0
+limit_right = 7920
+limit_bottom = 1200
+editor_draw_limits = true
 
 [node name="Player" parent="." unique_id=1836776631 instance=ExtResource("2_gpaps")]
 
@@ -21,3 +38,24 @@ remote_path = NodePath("../../PlayerCamera")
 [node name="UICanvasLayer" type="CanvasLayer" parent="." unique_id=1416423547]
 
 [node name="UI" parent="UICanvasLayer" unique_id=1540289603 instance=ExtResource("3_yxq8r")]
+
+[node name="MorgueReceptionLeftWallStaticBody" type="StaticBody2D" parent="." unique_id=1229610225]
+
+[node name="LeftMorgueReceptionInvisibleWall" type="CollisionShape2D" parent="MorgueReceptionLeftWallStaticBody" unique_id=1298542277]
+position = Vector2(-61.75, 602)
+shape = SubResource("RectangleShape2D_78qyl")
+
+[node name="MorgueReceptionRightWallStaticBody" type="StaticBody2D" parent="." unique_id=1238258778]
+
+[node name="RightMorgueReceptionInvisibleWall" type="CollisionShape2D" parent="MorgueReceptionRightWallStaticBody" unique_id=1430032017]
+position = Vector2(8335.5, 600.5)
+shape = SubResource("RectangleShape2D_yxq8r")
+
+[node name="TransitionToMainMorgue" type="Area2D" parent="." unique_id=1246896298]
+script = ExtResource("4_f0b2h")
+
+[node name="TransitionToMainMorgueArea" type="CollisionShape2D" parent="TransitionToMainMorgue" unique_id=742381804]
+position = Vector2(7931, 600)
+shape = SubResource("RectangleShape2D_7eu7v")
+
+[connection signal="body_entered" from="TransitionToMainMorgue" to="TransitionToMainMorgue" method="_on_body_entered"]
