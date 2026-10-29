@@ -10,6 +10,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_60qff"]
 size = Vector2(401, 1218)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_78qyl"]
+size = Vector2(784, 1359)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7eu7v"]
+size = Vector2(964, 1432)
+
 [node name="WebOffice" type="Node2D" unique_id=1668433638]
 script = ExtResource("1_v504c")
 
@@ -18,7 +24,17 @@ position = Vector2(2699, 582)
 scale = Vector2(18, 12)
 texture = ExtResource("2_v504c")
 
+[node name="PlayerCamera" type="Camera2D" parent="." unique_id=1522626951]
+limit_left = -315
+limit_top = -100
+limit_right = 5600
+limit_bottom = 1240
+editor_draw_limits = true
+
 [node name="Player" parent="." unique_id=1836776631 instance=ExtResource("3_hw4yx")]
+
+[node name="PlayerCameraRemote" type="RemoteTransform2D" parent="Player" unique_id=736949274]
+remote_path = NodePath("../../PlayerCamera")
 
 [node name="TestDoorRoom1" type="Area2D" parent="." unique_id=1304932029]
 script = ExtResource("4_jb0ai")
@@ -31,9 +47,21 @@ shape = SubResource("RectangleShape2D_60qff")
 
 [node name="UI" parent="UICanvasLayer" unique_id=1540289603 instance=ExtResource("5_vl682")]
 
-[node name="TestRoom1Audio" type="AudioStreamPlayer" parent="." unique_id=945576119]
+[node name="WebOfficeAudio" type="AudioStreamPlayer" parent="." unique_id=945576119]
 stream = ExtResource("6_0syv5")
 autoplay = true
+
+[node name="LeftOfficeWallStaticBody" type="StaticBody2D" parent="." unique_id=1198831074]
+
+[node name="LeftOfficeInvisibleWall" type="CollisionShape2D" parent="LeftOfficeWallStaticBody" unique_id=1617221988]
+position = Vector2(-558, 560)
+shape = SubResource("RectangleShape2D_78qyl")
+
+[node name="RightOfficeWallStaticBody" type="StaticBody2D" parent="." unique_id=677868712]
+
+[node name="RightOfficeInvisibleWall" type="CollisionShape2D" parent="RightOfficeWallStaticBody" unique_id=749748837]
+position = Vector2(6485, 551)
+shape = SubResource("RectangleShape2D_7eu7v")
 
 [connection signal="body_entered" from="TestDoorRoom1" to="TestDoorRoom1" method="_on_body_entered"]
 [connection signal="body_exited" from="TestDoorRoom1" to="TestDoorRoom1" method="_on_body_exited"]

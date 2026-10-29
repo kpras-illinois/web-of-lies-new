@@ -147,7 +147,6 @@ theme_override_font_sizes/font_size = 50
 text = "Travel to:"
 
 [node name="TravelToToggleButtonContainer" type="VBoxContainer" parent="PopupMenu/FastTravelContainer" unique_id=1548737891]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0

@@ -10,6 +10,9 @@ extends MarginContainer
 
 var evidencePage: int = 0
 var maxEvidencePage: int = 1
+# boolean to unlock morgue as teleportable location
+# currently has no way to be true
+var morgueUnlocked: bool = true
 
 # decides whether to show the menu or not, by default menu is not seen
 func toggle_visibility(object):
@@ -51,10 +54,12 @@ func _on_travel_to_police_station_corridor_pressed() -> void:
 
 # on pressing takes player to morgue
 func _on_travel_to_morgue_pressed() -> void:
-	# plays fading animation before moving
-	SceneTransition.transition()
-	await SceneTransition.on_transition_finished
-	get_tree().change_scene_to_file("res://Rooms/morgue_reception.tscn")
+	# checks if you unlocked the morgue
+	if morgueUnlocked:
+		# plays fading animation before moving
+		SceneTransition.transition()
+		await SceneTransition.on_transition_finished
+		get_tree().change_scene_to_file("res://Rooms/morgue_reception.tscn")
 
 # when pressed, decreases page by 1, then moves to the correct page
 func _on_evidence_menu_left_button_pressed() -> void:
