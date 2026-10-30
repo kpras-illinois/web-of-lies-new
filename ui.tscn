@@ -48,6 +48,7 @@ custom_minimum_size = Vector2(100, 20)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+text = "Close Menu"
 
 [node name="NinePatchRect" type="NinePatchRect" parent="PopupMenu/BaseMenuContainer/BaseMenuScreen/MenuAndToggle" unique_id=24089346]
 custom_minimum_size = Vector2(750, 350)
@@ -87,14 +88,19 @@ custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+text = "Fast
+Travel"
 
 [node name="EvidenceSheetToggleButton" type="Button" parent="PopupMenu/BaseMenuContainer/BaseMenuScreen/MenuAndToggle/NinePatchRect/ButtonMargins/ButtonContainer/TopButtonContainer" unique_id=758070594]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+text = "Evidence
+Menu"
 
 [node name="SettingsToggleButton" type="Button" parent="PopupMenu/BaseMenuContainer/BaseMenuScreen/MenuAndToggle/NinePatchRect/ButtonMargins/ButtonContainer/TopButtonContainer" unique_id=178474175]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+text = "Settings"
 
 [node name="BaseMenuSeperator" type="Control" parent="PopupMenu/BaseMenuContainer" unique_id=1773759916]
 layout_mode = 2
@@ -110,6 +116,7 @@ custom_minimum_size = Vector2(100, 20)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+text = "Open Menu"
 
 [node name="BaseMenuSeperator" type="Control" parent="PopupMenu/BaseMenuButtonContainer" unique_id=936704674]
 layout_mode = 2
@@ -161,6 +168,7 @@ custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+text = "Close"
 
 [node name="TravelToPlacesMarginContainer" type="MarginContainer" parent="PopupMenu/FastTravelContainer" unique_id=1358148346]
 layout_mode = 2
@@ -203,6 +211,8 @@ custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+text = "Left
+Button"
 
 [node name="EvidenceMenuContainer" type="MarginContainer" parent="PopupMenu/EvidenceMenuAndButtonsContainer" unique_id=582827895]
 layout_mode = 2
@@ -243,12 +253,15 @@ theme_override_constants/margin_right = -75
 [node name="EvidenceSheetToggleButton" type="Button" parent="PopupMenu/EvidenceMenuAndButtonsContainer/EvidenceMenuContainer/EvidenceMenuToggleButtonContainer/EvidenceMenuToggleButtonMarginContainer" unique_id=577555798]
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
+text = "Close"
 
 [node name="EvidenceMenuRightButton" type="Button" parent="PopupMenu/EvidenceMenuAndButtonsContainer" unique_id=1431923547]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+text = "Right
+Button"
 
 [connection signal="pressed" from="PopupMenu/BaseMenuContainer/BaseMenuScreen/MenuAndToggle/ToggleMenuButton" to="PopupMenu" method="_on_toggle_menu_button_pressed"]
 [connection signal="pressed" from="PopupMenu/BaseMenuContainer/BaseMenuScreen/MenuAndToggle/NinePatchRect/ButtonMargins/ButtonContainer/TopButtonContainer/TravelToToggleButton" to="PopupMenu" method="_on_travel_to_toggle_button_pressed"]
