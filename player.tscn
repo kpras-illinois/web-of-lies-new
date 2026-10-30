@@ -10,10 +10,6 @@ size = Vector2(34, 48)
 atlas = ExtResource("2_onrkg")
 region = Rect2(0, 0, 50, 60)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hqtel"]
-atlas = ExtResource("2_onrkg")
-region = Rect2(0, 0, 50, 60)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_sweqy"]
 atlas = ExtResource("2_onrkg")
 region = Rect2(50, 0, 50, 60)
@@ -34,6 +30,10 @@ region = Rect2(200, 0, 50, 60)
 atlas = ExtResource("2_onrkg")
 region = Rect2(250, 0, 50, 60)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqtel"]
+atlas = ExtResource("2_onrkg")
+region = Rect2(0, 0, 50, 60)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_yuk3x"]
 animations = [{
 "frames": [{
@@ -45,9 +45,6 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hqtel")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sweqy")
 }, {
@@ -62,6 +59,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_b26j0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqtel")
 }],
 "loop": 1,
 "name": &"Walk",
@@ -82,8 +82,10 @@ shape = SubResource("RectangleShape2D_78qyl")
 
 [node name="PlayerCamera" type="Camera2D" parent="." unique_id=869424374]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1022264948]
+[node name="s" type="AnimatedSprite2D" parent="." unique_id=1022264948]
 scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_yuk3x")
 animation = &"Walk"
 autoplay = "Idle"
+frame = 1
+frame_progress = 0.36484924

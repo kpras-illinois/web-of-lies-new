@@ -19,6 +19,7 @@ scale = Vector2(2.038, 1.412)
 texture = ExtResource("2_60qff")
 
 [node name="Player" parent="." unique_id=1836776631 instance=ExtResource("3_60qff")]
+position = Vector2(2, 2)
 
 [node name="TestDoorRoom1" type="Area2D" parent="." unique_id=1304932029]
 script = ExtResource("4_2pnme")
@@ -30,6 +31,10 @@ shape = SubResource("RectangleShape2D_60qff")
 [node name="UICanvasLayer" type="CanvasLayer" parent="." unique_id=794855588]
 
 [node name="UI" parent="UICanvasLayer" unique_id=1540289603 instance=ExtResource("5_v4pj3")]
+offset_left = 288.0
+offset_top = 273.0
+offset_right = 288.0
+offset_bottom = 273.0
 
 [node name="TestRoom1Audio" type="AudioStreamPlayer" parent="." unique_id=945576119]
 stream = ExtResource("6_hy5gg")
