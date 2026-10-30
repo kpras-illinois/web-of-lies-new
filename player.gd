@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+# makes script globally recognized
+class_name Player
+
 # defines the walking speed of the player character (PC)
 @export var speed := 1000
 
@@ -24,5 +27,14 @@ func _physics_process(_delta):
 	else:
 		animated_sprite.play("Idle")
 	# sets the velocity of the movement
+	if (Input.is_action_pressed("RunLeft")):
+		direction.x -= 1
+		speed = 2000
+	if  (Input.is_action_pressed("Left") and Input.is_action_pressed("Shift")):
+		direction.x += 1
+		speed = 2000
+
+
 	velocity = direction.normalized() * speed
+	
 	move_and_slide()

@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ckopckojylijj" path="res://player.tscn" id="3_60qff"]
 [ext_resource type="Script" uid="uid://6l2sqcr1jyql" path="res://test_door.gd" id="4_2pnme"]
 [ext_resource type="PackedScene" uid="uid://bki124eqmpcqg" path="res://ui.tscn" id="5_v4pj3"]
+[ext_resource type="AudioStream" uid="uid://cm4q1xmsur701" path="res://Background_Music/MP3 Tutorial Music.mp3" id="6_hy5gg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_60qff"]
 size = Vector2(401, 688)
@@ -13,7 +14,7 @@ size = Vector2(401, 688)
 script = ExtResource("1_82yi0")
 
 [node name="TestBackground1" type="Sprite2D" parent="." unique_id=1332127272]
-position = Vector2(2602, 541)
+position = Vector2(2630.0002, 571)
 scale = Vector2(2.038, 1.412)
 texture = ExtResource("2_60qff")
 
@@ -29,6 +30,10 @@ shape = SubResource("RectangleShape2D_60qff")
 [node name="UICanvasLayer" type="CanvasLayer" parent="." unique_id=794855588]
 
 [node name="UI" parent="UICanvasLayer" unique_id=1540289603 instance=ExtResource("5_v4pj3")]
+
+[node name="TestRoom1Audio" type="AudioStreamPlayer" parent="." unique_id=945576119]
+stream = ExtResource("6_hy5gg")
+autoplay = true
 
 [connection signal="body_entered" from="TestDoorRoom1" to="TestDoorRoom1" method="_on_body_entered"]
 [connection signal="body_exited" from="TestDoorRoom1" to="TestDoorRoom1" method="_on_body_exited"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://iday1seevygd"
-path="res://.godot/imported/Notepad.jpeg-c21651fd8975e8eea2644863b6973762.ctex"
+uid="uid://d0jilta7hrhn"
+path="res://.godot/imported/pz_Final_Police_Station_Corridor_Sheet.png-ab61db399eb38a132c9ef7129816de6b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Notepad.jpeg"
-dest_files=["res://.godot/imported/Notepad.jpeg-c21651fd8975e8eea2644863b6973762.ctex"]
+source_file="res://Room_Backgrounds/pz_Final_Police_Station_Corridor_Sheet.png"
+dest_files=["res://.godot/imported/pz_Final_Police_Station_Corridor_Sheet.png-ab61db399eb38a132c9ef7129816de6b.ctex"]
 
 [params]
 

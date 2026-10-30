@@ -71,6 +71,11 @@ animations = [{
 [node name="Player" type="CharacterBody2D" unique_id=1836776631]
 script = ExtResource("1_4flbx")
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=770882477]
+position = Vector2(9.536743e-07, -1.9073486e-06)
+scale = Vector2(0.9999999, 1.0000001)
+texture = ExtResource("2_onrkg")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2092722309]
 scale = Vector2(10, 10)
 shape = SubResource("RectangleShape2D_78qyl")
