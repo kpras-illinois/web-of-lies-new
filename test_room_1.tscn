@@ -100,6 +100,10 @@ debug_color = Color(0.7008361, 0.42566875, 0.6531016, 0.41960785)
 [node name="UICanvasLayer" type="CanvasLayer" parent="." unique_id=794855588]
 
 [node name="UI" parent="UICanvasLayer" unique_id=1540289603 instance=ExtResource("8_v4pj3")]
+offset_left = 288.0
+offset_top = 273.0
+offset_right = 288.0
+offset_bottom = 273.0
 
 [node name="TestRoom1Audio" type="AudioStreamPlayer" parent="." unique_id=945576119]
 stream = ExtResource("9_hy5gg")
