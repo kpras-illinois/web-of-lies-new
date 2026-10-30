@@ -3,6 +3,7 @@ extends Area2D
 # variable to see if "door" has been interacted with
 var entered = false;
 
+"""
 # checks when the "door" is being contacted
 func _on_body_entered(_body: PhysicsBody2D):
 	entered = true # door is being contacted
@@ -11,8 +12,15 @@ func _on_body_entered(_body: PhysicsBody2D):
 func _on_body_exited(_body):
 	entered = false # door is not being contacted
 
-#
+
+# moved from from room 2 to room 1
 func _process(_delta):
 	if entered == true:
 		if Input.is_action_just_pressed("Interact"):
-			get_tree().change_scene_to_file("res://test_room_1.tscn")
+			# plays fading animation before moving
+			SceneTransition.transition()
+			await SceneTransition.on_transition_finished
+			get_tree().change_scene_to_file("res://web_office.tscn")
+"""
+# currently not in use, teleported from one room to another via interaction
+# could be useful later, feel free to nuke it though - Evan

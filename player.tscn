@@ -11,14 +11,17 @@ script = ExtResource("1_4flbx")
 interaction_area = NodePath("Area2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=770882477]
+position = Vector2(9.536743e-07, -1.9073486e-06)
+scale = Vector2(0.9999999, 1.0000001)
 texture = ExtResource("2_onrkg")
+
+[node name="BodyCollisionShape2D" type="CollisionShape2D" parent="." unique_id=550012345]
+shape = SubResource("RectangleShape2D_78qyl")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1433280600]
 collision_layer = 2
-collision_mask = 0
+collision_mask = 2
 input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2092722309]
 shape = SubResource("RectangleShape2D_78qyl")
-
-[node name="PlayerCamera" type="Camera2D" parent="." unique_id=869424374]
