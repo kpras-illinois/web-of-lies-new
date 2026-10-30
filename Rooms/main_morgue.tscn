@@ -38,7 +38,7 @@ remote_path = NodePath("../../PlayerCamera")
 [node name="MorgueLeftWallStaticBody" type="StaticBody2D" parent="." unique_id=745758977]
 
 [node name="LeftMorgueInvisibleWall" type="CollisionShape2D" parent="MorgueLeftWallStaticBody" unique_id=1165029410]
-position = Vector2(-2952.5, 604.25)
+position = Vector2(-3260.5, 604.25)
 shape = SubResource("RectangleShape2D_78qyl")
 
 [node name="MorgueRightWallStaticBody" type="StaticBody2D" parent="." unique_id=97378958]
@@ -46,3 +46,5 @@ shape = SubResource("RectangleShape2D_78qyl")
 [node name="RightMorgueInvisibleWall" type="CollisionShape2D" parent="MorgueRightWallStaticBody" unique_id=1246653430]
 position = Vector2(4840.25, 600)
 shape = SubResource("RectangleShape2D_7eu7v")
+
+[node name="Transition" type="Area2D" parent="." unique_id=140413276]
