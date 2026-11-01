@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://cmcxbkq40uf2m"]
+
+[ext_resource type="PackedScene" uid="uid://bbdcpfl8b8w45" path="res://Scenes/dialogue.tscn" id="1_i22cw"]
+[ext_resource type="Script" uid="uid://cyyx3virftpo0" path="res://Scripts/dialogue_drawer.gd" id="1_q34me"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s2lbf"]
+bg_color = Color(0, 0, 0, 0.45490196)
+border_width_left = 10
+border_width_right = 10
+
+[node name="DialogueDrawer" type="MarginContainer" unique_id=2137612320]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+script = ExtResource("1_q34me")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=402809481]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_s2lbf")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer" unique_id=915239017]
+layout_mode = 2
+
+[node name="dialogue_entries" type="VBoxContainer" parent="PanelContainer/ScrollContainer" unique_id=884185396]
+custom_minimum_size = Vector2(330, 550)
+layout_mode = 2
+alignment = 2
+
+[node name="MarginContainer" parent="PanelContainer/ScrollContainer/dialogue_entries" unique_id=1154415003 instance=ExtResource("1_i22cw")]
+layout_mode = 2

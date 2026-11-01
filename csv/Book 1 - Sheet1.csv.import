@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://lqynfhx3wrgx"
+
+[deps]
+
+files=["res://csv/Book 1 - Sheet1.Hello! I am boxy the talking box!.translation", "res://csv/Book 1 - Sheet1.continue.translation"]
+
+source_file="res://csv/Book 1 - Sheet1.csv"
+dest_files=["res://csv/Book 1 - Sheet1.Hello! I am boxy the talking box!.translation", "res://csv/Book 1 - Sheet1.continue.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true
