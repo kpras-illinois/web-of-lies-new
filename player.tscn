@@ -93,7 +93,6 @@ input_pickable = false
 shape = SubResource("RectangleShape2D_interaction")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1022264948]
-scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_yuk3x")
 animation = &"Walk"
 autoplay = "Idle"
