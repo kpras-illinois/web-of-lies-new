@@ -4,7 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://ce202a06ubrn0" path="res://Player_Anims/detective_walk_sheet.png" id="2_onrkg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_78qyl"]
-size = Vector2(34, 48)
+size = Vector2(12.799999, 12.799999)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interaction"]
+size = Vector2(128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i3pqv"]
 atlas = ExtResource("2_onrkg")
@@ -68,22 +71,24 @@ animations = [{
 "speed": 8.0
 }]
 
-[node name="Player" type="CharacterBody2D" unique_id=1836776631]
+[node name="Player" type="CharacterBody2D" unique_id=1836776631 node_paths=PackedStringArray("interaction_area")]
 script = ExtResource("1_4flbx")
+interaction_area = NodePath("Area2D")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=770882477]
-position = Vector2(9.536743e-07, -1.9073486e-06)
-scale = Vector2(0.9999999, 1.0000001)
-texture = ExtResource("2_onrkg")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2092722309]
+[node name="BodyCollisionShape2D" type="CollisionShape2D" parent="." unique_id=550012345]
+position = Vector2(-3.33786e-06, -3.0994415e-06)
 scale = Vector2(10, 10)
 shape = SubResource("RectangleShape2D_78qyl")
 
-[node name="PlayerCamera" type="Camera2D" parent="." unique_id=869424374]
+[node name="Area2D" type="Area2D" parent="." unique_id=1433280600]
+collision_layer = 2
+collision_mask = 2
+input_pickable = false
 
-[node name="s" type="AnimatedSprite2D" parent="." unique_id=1022264948]
-scale = Vector2(10, 10)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2092722309]
+shape = SubResource("RectangleShape2D_interaction")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1022264948]
 sprite_frames = SubResource("SpriteFrames_yuk3x")
 animation = &"Walk"
 autoplay = "Idle"

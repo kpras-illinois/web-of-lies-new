@@ -16,8 +16,7 @@ size = Vector2(402, 1232)
 script = ExtResource("1_7mga5")
 
 [node name="PoliceStationCorridorBackground" type="Sprite2D" parent="." unique_id=532287219]
-position = Vector2(961, 603.5)
-scale = Vector2(2.9, 1.816)
+position = Vector2(912, 320)
 texture = ExtResource("2_vpqoh")
 region_enabled = true
 region_rect = Rect2(25, 11, 2944, 679)
