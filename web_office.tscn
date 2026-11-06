@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://bhdql2mqvrk5l"]
+
+[ext_resource type="Script" uid="uid://dp2cu5sg32m11" path="res://web_office.tscn.gd" id="1_v504c"]
+[ext_resource type="Texture2D" uid="uid://bxj0angecgo1t" path="res://Room_Backgrounds/A_office_reference_1x1.png" id="2_v504c"]
+[ext_resource type="PackedScene" uid="uid://ckopckojylijj" path="res://player.tscn" id="3_hw4yx"]
+[ext_resource type="Script" uid="uid://6l2sqcr1jyql" path="res://test_door.gd" id="4_jb0ai"]
+[ext_resource type="PackedScene" uid="uid://bki124eqmpcqg" path="res://ui.tscn" id="5_vl682"]
+[ext_resource type="AudioStream" uid="uid://cm4q1xmsur701" path="res://Background_Music/MP3 Tutorial Music.mp3" id="6_0syv5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_60qff"]
+size = Vector2(401, 1218)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_78qyl"]
+size = Vector2(784, 1359)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7eu7v"]
+size = Vector2(964, 1432)
+
+[node name="WebOffice" type="Node2D" unique_id=1668433638]
+script = ExtResource("1_v504c")
+
+[node name="WebOfficeBackground" type="Sprite2D" parent="." unique_id=1332127272]
+position = Vector2(2699, 582)
+scale = Vector2(18, 12)
+texture = ExtResource("2_v504c")
+
+[node name="PlayerCamera" type="Camera2D" parent="." unique_id=1522626951]
+limit_left = -315
+limit_top = -100
+limit_right = 5600
+limit_bottom = 1240
+editor_draw_limits = true
+
+[node name="Player" parent="." unique_id=1836776631 instance=ExtResource("3_hw4yx")]
+
+[node name="PlayerCameraRemote" type="RemoteTransform2D" parent="Player" unique_id=736949274]
+remote_path = NodePath("../../PlayerCamera")
+
+[node name="TestDoorRoom1" type="Area2D" parent="." unique_id=1304932029]
+script = ExtResource("4_jb0ai")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestDoorRoom1" unique_id=1022635628]
+position = Vector2(5797, 604)
+shape = SubResource("RectangleShape2D_60qff")
+
+[node name="UICanvasLayer" type="CanvasLayer" parent="." unique_id=794855588]
+
+[node name="UI" parent="UICanvasLayer" unique_id=1540289603 instance=ExtResource("5_vl682")]
+
+[node name="WebOfficeAudio" type="AudioStreamPlayer" parent="." unique_id=945576119]
+stream = ExtResource("6_0syv5")
+autoplay = true
+
+[node name="LeftOfficeWallStaticBody" type="StaticBody2D" parent="." unique_id=1198831074]
+
+[node name="LeftOfficeInvisibleWall" type="CollisionShape2D" parent="LeftOfficeWallStaticBody" unique_id=1617221988]
+position = Vector2(-558, 560)
+shape = SubResource("RectangleShape2D_78qyl")
+
+[node name="RightOfficeWallStaticBody" type="StaticBody2D" parent="." unique_id=677868712]
+
+[node name="RightOfficeInvisibleWall" type="CollisionShape2D" parent="RightOfficeWallStaticBody" unique_id=749748837]
+position = Vector2(6485, 551)
+shape = SubResource("RectangleShape2D_7eu7v")
+
+[connection signal="body_entered" from="TestDoorRoom1" to="TestDoorRoom1" method="_on_body_entered"]
+[connection signal="body_exited" from="TestDoorRoom1" to="TestDoorRoom1" method="_on_body_exited"]
