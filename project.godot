@@ -21,8 +21,8 @@ SceneTransition="*uid://mukjggsb8fkd"
 
 [display]
 
-window/size/viewport_width=800
-window/size/viewport_height=500
+window/size/viewport_width=400
+window/size/viewport_height=225
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 mouse_cursor/custom_image="uid://bl543a1bgvpq8"
