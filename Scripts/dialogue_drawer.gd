@@ -4,7 +4,7 @@ const DialogueEntry = preload("res://Scenes/dialogue.tscn")
 
 @onready var _dialogue_entries_container: Control = $PanelContainer/ScrollContainer/dialogue_entries
 
-var csv_path_test : String = "res://csv/Book 1 - Sheet1.csv"
+var csv_path_test : String = "res://csv/sheet.txt"
 
 func next(loc: int) -> bool:
 	var dialogue_data: Array[PackedStringArray] = load_csv_as_array(csv_path_test)

@@ -1,0 +1,6 @@
+"Officer", "[Shouting from distance]: WEB!!! ARE YOU SLEEPING ON ANOTHER CASE AGAIN?!"
+"Narrator", "//*Your eyes open*"
+"Web","No officer. I was just reviewing the evidence."
+"Officer","Your eyes were closed because you were sleeping."
+"Web","A temporary investigative technique."
+"Officer","Just show me the case file."
