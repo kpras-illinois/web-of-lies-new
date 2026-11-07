@@ -4,17 +4,18 @@ const DialogueEntry = preload("res://Scenes/dialogue.tscn")
 
 @onready var _dialogue_entries_container: Control = $PanelContainer/ScrollContainer/dialogue_entries
 
+var csv_path_test : String = "res://csv/Book 1 - Sheet1.csv"
 
-
-func next(loc:int) -> bool:
-	var dialogue_data : Array[PackedStringArray] = load_csv_as_array(csv_path_test)
-	if(loc == dialogue_data.size()):
+func next(loc: int) -> bool:
+	var dialogue_data: Array[PackedStringArray] = load_csv_as_array(csv_path_test)
+	print("CSV rows loaded: ", dialogue_data.size())
+	if loc < 0 or loc >= dialogue_data.size():
 		return false
 	var entry = DialogueEntry.instantiate()
 	_dialogue_entries_container.add_child(entry)
 	entry.set_content(dialogue_data[loc][0], dialogue_data[loc][1])
 	return true
-		
+
 func optional(loc:int) -> bool:
 	var dialogue_data : Array[PackedStringArray] = load_csv_as_array(csv_path_test)
 	
@@ -23,10 +24,11 @@ func optional(loc:int) -> bool:
 	else:
 		return false
 
-var csv_path_test : String = "res://csv/Book 1 - Sheet1.csv"
+func _ready() -> void:
+	pass
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+"""func _ready() -> void:
 
 	#creates an array of events to have the timeline process
 	
@@ -35,7 +37,7 @@ func _ready() -> void:
 
 	var start = DialogueEntry.instantiate()
 	_dialogue_entries_container.add_child(start)
-	start.set_content(dialogue_data[0][0], dialogue_data[0][1])
+	start.set_content(dialogue_data[0][0], dialogue_data[0][1])"""
 
 	
 
