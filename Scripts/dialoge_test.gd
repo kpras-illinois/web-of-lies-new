@@ -2,20 +2,35 @@ extends Node2D
 
 @onready var _dialogue_drawer = $HUD/DialogueDrawer
 
-var num = 1
+var num = 0
+
+func _ready() -> void:
+	if _dialogue_drawer.next(num):
+		num += 1
 
 
 func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_accept") and not event.is_echo():
+		if _dialogue_drawer.next(num):
+			num += 1
+			
+func advance_dialogue() -> void:
+	if _dialogue_drawer.next(num):
+		num += 1
+
+func optionChoose(_op: int) -> void:
+	advance_dialogue()
+
+"""func _input(event: InputEvent) -> void:
 		if event.is_action_pressed("ui_accept"):
 				if _dialogue_drawer.next(num):
 					num += 1
-		"""elif event.is_action_pressed():
+		elif event.is_action_pressed():
 			if _dialogue_drawer.next(num):
 				num -= 1
-		"""
+"""
 
-
-func optionChoose(op: int) -> void:
+"""func optionChoose(op: int) -> void:
 	if op == 1:
 		if _dialogue_drawer.optional(num):
 			if _dialogue_drawer.next(num+2):
@@ -26,4 +41,4 @@ func optionChoose(op: int) -> void:
 	elif op == 2:
 		if _dialogue_drawer.next(num):
 			num +=1
-		 
+"""

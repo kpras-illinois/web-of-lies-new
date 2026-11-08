@@ -38,11 +38,12 @@ text = "1."
 layout_mode = 2
 theme_override_colors/font_color = Color(0.7987336, 0.11022163, 9.62615e-08, 1)
 action_mode = 0
-text = "Option 1"
+text = "continue"
 expand_icon = true
 script = ExtResource("2_dgfud")
 
 [node name="DialogueOption2" type="MarginContainer" parent="VBoxContainer/Options" unique_id=438947762]
+visible = false
 layout_mode = 2
 size_flags_stretch_ratio = 0.0
 
