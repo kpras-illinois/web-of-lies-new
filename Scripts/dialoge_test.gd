@@ -14,6 +14,7 @@ func _input(event: InputEvent) -> void:
 				num -= 1
 		"""
 
+
 func optionChoose(op: int) -> void:
 	if op == 1:
 		if _dialogue_drawer.optional(num):
