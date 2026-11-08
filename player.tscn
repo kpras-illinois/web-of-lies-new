@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://ce202a06ubrn0" path="res://Player_Anims/detective_walk_sheet.png" id="2_onrkg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_78qyl"]
-size = Vector2(12.799999, 12.799999)
+size = Vector2(2.9999995, 4.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_interaction"]
-size = Vector2(128, 128)
+size = Vector2(29, 45)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i3pqv"]
 atlas = ExtResource("2_onrkg")
@@ -76,7 +76,7 @@ script = ExtResource("1_4flbx")
 interaction_area = NodePath("Area2D")
 
 [node name="BodyCollisionShape2D" type="CollisionShape2D" parent="." unique_id=550012345]
-position = Vector2(-3.33786e-06, -3.0994415e-06)
+position = Vector2(-1.4305115e-06, 0.5)
 scale = Vector2(10, 10)
 shape = SubResource("RectangleShape2D_78qyl")
 
@@ -86,6 +86,7 @@ collision_mask = 2
 input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2092722309]
+position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_interaction")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1022264948]

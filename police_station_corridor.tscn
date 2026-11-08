@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dhwxoih377mk6"]
 
 [ext_resource type="Script" uid="uid://di5kpbpyparor" path="res://test_room_2.gd" id="1_7mga5"]
-[ext_resource type="Texture2D" uid="uid://d0jilta7hrhn" path="res://Room_Backgrounds/pz_Final_Police_Station_Corridor_Sheet.png" id="2_vpqoh"]
+[ext_resource type="Texture2D" uid="uid://cwpfcd8nw33pm" path="res://Room_Backgrounds/Police_Station_Corridor_sheet_1x1.png" id="2_7tsfr"]
 [ext_resource type="PackedScene" uid="uid://ckopckojylijj" path="res://player.tscn" id="3_5k25i"]
 [ext_resource type="PackedScene" uid="uid://bki124eqmpcqg" path="res://ui.tscn" id="5_pkhbd"]
 [ext_resource type="AudioStream" uid="uid://cua1h46sp6xhw" path="res://Background_Music/Welcome to the Morgue.mp3" id="6_ogits"]
@@ -17,7 +17,7 @@ script = ExtResource("1_7mga5")
 
 [node name="PoliceStationCorridorBackground" type="Sprite2D" parent="." unique_id=532287219]
 position = Vector2(912, 320)
-texture = ExtResource("2_vpqoh")
+texture = ExtResource("2_7tsfr")
 region_enabled = true
 region_rect = Rect2(25, 11, 2944, 679)
 

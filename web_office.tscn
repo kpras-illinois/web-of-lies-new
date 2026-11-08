@@ -14,7 +14,7 @@ size = Vector2(18.5, 120)
 size = Vector2(20, 117)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7eu7v"]
-size = Vector2(69, 126)
+size = Vector2(29.5, 126)
 
 [node name="WebOffice" type="Node2D" unique_id=1668433638]
 script = ExtResource("1_v504c")
@@ -95,7 +95,7 @@ remote_path = NodePath("../../PlayerCamera")
 script = ExtResource("4_jb0ai")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TestDoorRoom1" unique_id=1022635628]
-position = Vector2(590, 251)
+position = Vector2(574, 251)
 shape = SubResource("RectangleShape2D_60qff")
 
 [node name="UICanvasLayer" type="CanvasLayer" parent="." unique_id=794855588]
@@ -111,13 +111,13 @@ autoplay = true
 [node name="LeftOfficeWallStaticBody" type="StaticBody2D" parent="." unique_id=1198831074]
 
 [node name="LeftOfficeInvisibleWall" type="CollisionShape2D" parent="LeftOfficeWallStaticBody" unique_id=1617221988]
-position = Vector2(216, 250.5)
+position = Vector2(224, 251)
 shape = SubResource("RectangleShape2D_v504c")
 
 [node name="RightOfficeWallStaticBody" type="StaticBody2D" parent="." unique_id=677868712]
 
 [node name="RightOfficeInvisibleWall" type="CollisionShape2D" parent="RightOfficeWallStaticBody" unique_id=749748837]
-position = Vector2(640, 250)
+position = Vector2(599, 250)
 shape = SubResource("RectangleShape2D_7eu7v")
 
 [node name="SpawnPoint" type="Marker2D" parent="." unique_id=1908915392]

@@ -9,7 +9,7 @@ var _interactable_candidates: Array = []
 var interact_target: Interactable = null
 
 # defines the walking speed of the player character (PC)
-@export var speed := 1000
+@export var speed := 150
 
 @onready var animated_sprite = $AnimatedSprite2D
 
@@ -21,6 +21,8 @@ func _ready() -> void:
 		return
 	interaction_area.area_entered.connect(_on_interaction_area_area_entered)
 	interaction_area.area_exited.connect(_on_interaction_area_area_exited)
+	# connects scene transition signal to player
+	SceneTransition.transition_started.connect(_on_transition_started)
 
 # allows PC to move throughout the scene
 func _physics_process(_delta):
@@ -43,11 +45,14 @@ func _physics_process(_delta):
 	if  (Input.is_action_pressed("Left") and Input.is_action_pressed("Shift")):
 		direction.x += 1
 		speed = 2000
-
-
 	velocity = direction.normalized() * speed
-	
 	move_and_slide()
+
+# disables input when entering transition
+func _on_transition_started():
+	speed = 0
+	await SceneTransition.on_transition_finished
+	speed = 150
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("Interact"):
@@ -55,7 +60,6 @@ func _process(_delta: float) -> void:
 			interact_target = _pick_next_candidate()
 		if is_instance_valid(interact_target):
 			interact_target.interact()
-
 
 func _on_interaction_area_area_entered(area: Area2D) -> void:
 	if area is Interactable:
