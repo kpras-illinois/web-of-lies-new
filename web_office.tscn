@@ -121,7 +121,7 @@ position = Vector2(599, 250)
 shape = SubResource("RectangleShape2D_7eu7v")
 
 [node name="SpawnPoint" type="Marker2D" parent="." unique_id=1908915392]
-position = Vector2(410, 278)
+position = Vector2(410, 279)
 
 [connection signal="body_entered" from="TestDoorRoom1" to="TestDoorRoom1" method="_on_body_entered"]
 [connection signal="body_exited" from="TestDoorRoom1" to="TestDoorRoom1" method="_on_body_exited"]
