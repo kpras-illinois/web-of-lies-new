@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dq1p0kyif7fes"]
 
-[ext_resource type="Texture2D" uid="uid://4ua7y7wt8urn" path="res://Room_Backgrounds/Morgue_sheet.png" id="1_yxq8r"]
+[ext_resource type="Texture2D" uid="uid://4ua7y7wt8urn" path="res://Room_Backgrounds/OLD_Morgue_sheet.png" id="1_yxq8r"]
 [ext_resource type="PackedScene" uid="uid://ckopckojylijj" path="res://player.tscn" id="2_gpaps"]
 [ext_resource type="PackedScene" uid="uid://bki124eqmpcqg" path="res://ui.tscn" id="3_yxq8r"]
 [ext_resource type="Script" uid="uid://buvaldntfyk7w" path="res://Rooms/transition_to_main_morgue.gd" id="4_f0b2h"]
