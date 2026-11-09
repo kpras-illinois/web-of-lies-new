@@ -28,6 +28,9 @@ func _ready() -> void:
 func _physics_process(_delta):
 	var direction = Vector2.ZERO
 	# inputs for movement left & right
+	if speed == 0:
+		animated_sprite.play("Idle")
+		return
 	if Input.is_action_pressed("Left"):
 		direction.x -= 1
 		animated_sprite.play("Walk")
