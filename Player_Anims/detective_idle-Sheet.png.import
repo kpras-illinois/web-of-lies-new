@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0jilta7hrhn"
-path="res://.godot/imported/pz_Final_Police_Station_Corridor_Sheet.png-ab61db399eb38a132c9ef7129816de6b.ctex"
+uid="uid://cv04knken5404"
+path="res://.godot/imported/detective_idle-Sheet.png-60a1c63048efa61396fc91f707fb0471.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Room_Backgrounds/pz_Final_Police_Station_Corridor_Sheet.png"
-dest_files=["res://.godot/imported/pz_Final_Police_Station_Corridor_Sheet.png-ab61db399eb38a132c9ef7129816de6b.ctex"]
+source_file="res://Player_Anims/detective_idle-Sheet.png"
+dest_files=["res://.godot/imported/detective_idle-Sheet.png-60a1c63048efa61396fc91f707fb0471.ctex"]
 
 [params]
 
