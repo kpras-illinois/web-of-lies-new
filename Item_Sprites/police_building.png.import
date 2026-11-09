@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dd6b5i7hgvhih"
-path="res://.godot/imported/Detective_office_asset_sheet.png-9d63fc7673a5a26f969b0eb56ae3c956.ctex"
+uid="uid://mwgbnbant22c"
+path="res://.godot/imported/police_building.png-19179c8378bdb854998aded77350bada.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Room_Backgrounds/Detective_office_asset_sheet.png"
-dest_files=["res://.godot/imported/Detective_office_asset_sheet.png-9d63fc7673a5a26f969b0eb56ae3c956.ctex"]
+source_file="res://Item_Sprites/police_building.png"
+dest_files=["res://.godot/imported/police_building.png-19179c8378bdb854998aded77350bada.ctex"]
 
 [params]
 

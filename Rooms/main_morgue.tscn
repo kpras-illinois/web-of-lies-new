@@ -2052,4 +2052,4 @@ position = Vector2(492, 101)
 shape = SubResource("RectangleShape2D_vb620")
 
 [node name="SpawnPoint" type="Marker2D" parent="." unique_id=382885589]
-position = Vector2(-62, 142)
+position = Vector2(-62, 138)
