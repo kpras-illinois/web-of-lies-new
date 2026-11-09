@@ -7,10 +7,13 @@ class_name Player
 @export var speed := 1000
 
 @onready var animated_sprite = $AnimatedSprite2D
-
+var inventory = EvidenceInventory.new()
 # sets the starting position of the PC
 func _ready() -> void:
 	position = Vector2(860, 600)
+	inventory.load_inventory(EvidenceDatabase.evidencelog)
+
+	
 
 # allows PC to move throughout the scene
 func _physics_process(_delta):
@@ -38,3 +41,32 @@ func _physics_process(_delta):
 	velocity = direction.normalized() * speed
 	
 	move_and_slide()
+	
+	
+#evidence collecting test
+func collect_evidence(item_id: String) -> void:
+	var evidence = EvidenceDatabase.get_evidence(item_id)
+	if evidence == null:
+		print("null evidence")
+		return
+
+	var added = inventory.add_item(evidence)
+
+	if added:
+		print("Collected: ", evidence.item_name)
+		inventory.save_inventory()
+	else:
+		print("You already have this evidence!")
+	
+func _process(delta)->void:
+	if Input.is_action_pressed("testaddevidence1"):
+		collect_evidence("knife01")
+	if Input.is_action_pressed("testaddevidence2"):
+		collect_evidence("knife02")
+	if Input.is_action_pressed("testaddevidence3"):
+		collect_evidence("paper01")
+	if Input.is_action_pressed("testaddevidence4"):
+		collect_evidence("magnifying")
+	
+		
+		
