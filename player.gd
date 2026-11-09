@@ -31,6 +31,9 @@ func _physics_process(_delta):
 	if speed == 0:
 		animated_sprite.play("Idle")
 		return
+	speed = 150
+	if Input.is_action_pressed("Shift"):
+		speed = 250
 	if Input.is_action_pressed("Left"):
 		direction.x -= 1
 		animated_sprite.play("Walk")
@@ -42,12 +45,12 @@ func _physics_process(_delta):
 	else:
 		animated_sprite.play("Idle")
 	# sets the velocity of the movement
-	if (Input.is_action_pressed("RunLeft")):
-		direction.x -= 1
-		speed = 2000
-	if  (Input.is_action_pressed("Left") and Input.is_action_pressed("Shift")):
-		direction.x += 1
-		speed = 2000
+	#if (Input.is_action_pressed("RunLeft")):
+		#direction.x -= 1
+		#speed = 2000
+	#if  (Input.is_action_pressed("Left") and Input.is_action_pressed("Shift")):
+		#direction.x += 1
+		#speed = 2000
 	velocity = direction.normalized() * speed
 	move_and_slide()
 
