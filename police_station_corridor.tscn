@@ -2149,5 +2149,8 @@ position = Vector2(-95, -5)
 position = Vector2(2, 115)
 shape = SubResource("RectangleShape2D_08lcq")
 
-[node name="SpawnPoint" type="Marker2D" parent="." unique_id=1359197627]
+[node name="OfficeSpawnPoint" type="Marker2D" parent="." unique_id=1359197627]
 position = Vector2(470, 144)
+
+[node name="ExteriorSpawnPoint" type="Marker2D" parent="." unique_id=37758118]
+position = Vector2(212, 144)
