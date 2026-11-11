@@ -59,7 +59,7 @@ func _on_travel_to_morgue_pressed() -> void:
 		# plays fading animation before moving
 		SceneTransition.transition()
 		await SceneTransition.on_transition_finished
-		get_tree().change_scene_to_file("res://Rooms/main_morgue.tscn")
+		get_tree().change_scene_to_file("res://Rooms/morgue_reception.tscn")
 
 # when pressed, decreases page by 1, then moves to the correct page
 func _on_evidence_menu_left_button_pressed() -> void:

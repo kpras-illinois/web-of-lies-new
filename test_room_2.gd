@@ -1,6 +1,7 @@
 extends Node2D
 
 func _ready():
+	$Player.position = $ExteriorSpawnPoint.position
 	SignalBus.entering_police_from_exterior.connect(_on_entering_from_outside)
 	SignalBus.entering_police_from_office.connect(_on_entering_from_office)
 
