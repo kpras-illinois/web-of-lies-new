@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://gb70n3kfx11a" path="res://Room_Backgrounds/Morgue_sheet_1x1. (1).png" id="1_72sf4"]
 [ext_resource type="PackedScene" uid="uid://ckopckojylijj" path="res://player.tscn" id="2_w6og8"]
 [ext_resource type="PackedScene" uid="uid://bki124eqmpcqg" path="res://ui.tscn" id="3_72sf4"]
+[ext_resource type="Script" uid="uid://dppbunyiwk442" path="res://Rooms/door_to_reception.gd" id="5_4sxtg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2d5gy"]
 texture = ExtResource("1_72sf4")
@@ -1962,6 +1963,9 @@ size = Vector2(20, 142)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vb620"]
 size = Vector2(20, 141)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_78qyl"]
+size = Vector2(9, 72)
+
 [node name="MainMorgue" type="Node2D" unique_id=855188080]
 script = ExtResource("1_2d5gy")
 
@@ -2042,7 +2046,7 @@ remote_path = NodePath("../../PlayerCamera")
 [node name="MorgueLeftWallStaticBody" type="StaticBody2D" parent="." unique_id=745758977]
 
 [node name="LeftMorgueInvisibleWall" type="CollisionShape2D" parent="MorgueLeftWallStaticBody" unique_id=1982673428]
-position = Vector2(-96, 101)
+position = Vector2(-101, 101)
 shape = SubResource("RectangleShape2D_08lcq")
 
 [node name="MorgueRightWallStaticBody" type="StaticBody2D" parent="." unique_id=97378958]
@@ -2053,3 +2057,13 @@ shape = SubResource("RectangleShape2D_vb620")
 
 [node name="SpawnPoint" type="Marker2D" parent="." unique_id=382885589]
 position = Vector2(-62, 138)
+
+[node name="DoorToReception" type="Area2D" parent="." unique_id=1737970518]
+script = ExtResource("5_4sxtg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorToReception" unique_id=996836636]
+position = Vector2(-85, 129)
+shape = SubResource("RectangleShape2D_78qyl")
+
+[connection signal="body_entered" from="DoorToReception" to="DoorToReception" method="_on_body_entered"]
+[connection signal="body_exited" from="DoorToReception" to="DoorToReception" method="_on_body_exited"]

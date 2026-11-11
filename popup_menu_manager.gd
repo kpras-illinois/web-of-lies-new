@@ -50,7 +50,7 @@ func _on_travel_to_police_station_corridor_pressed() -> void:
 	# plays fading animation before moving
 	SceneTransition.transition()
 	await SceneTransition.on_transition_finished
-	get_tree().change_scene_to_file("res://police_station_corridor.tscn")
+	get_tree().change_scene_to_file("res://Rooms/police_exterior.tscn")
 
 # on pressing takes player to morgue
 func _on_travel_to_morgue_pressed() -> void:
