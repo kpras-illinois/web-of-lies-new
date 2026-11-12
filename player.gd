@@ -12,8 +12,8 @@ var interact_target: Interactable = null
 @export var speed := 150
 
 @onready var animated_sprite = $AnimatedSprite2D
-
 # sets the starting position of the PC
+var inventory = EvidenceDatabase.evidenceinventory
 func _ready() -> void:
 	position = Vector2(860, 600)
 	if not is_instance_valid(interaction_area):
@@ -23,6 +23,8 @@ func _ready() -> void:
 	interaction_area.area_exited.connect(_on_interaction_area_area_exited)
 	# connects scene transition signal to player
 	SceneTransition.transition_started.connect(_on_transition_started)
+
+
 
 # allows PC to move throughout the scene
 func _physics_process(_delta):
@@ -53,6 +55,40 @@ func _physics_process(_delta):
 		#speed = 2000
 	velocity = direction.normalized() * speed
 	move_and_slide()
+	
+
+#evidence collecting test
+func collect_evidence(item_id: String) -> bool:
+	var evidence = EvidenceDatabase.get_evidence(item_id)
+	if evidence == null:
+		print("null evidence")
+		return false
+
+	if inventory.add_item(evidence):
+		print("Collected: ", evidence.item_name)
+		inventory.save_inventory()
+		return true
+
+	print("You already have this evidence!")
+	return false
+	
+	
+	
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("Interact"):
+		if not is_instance_valid(interact_target):
+			interact_target = _pick_next_candidate()
+		if is_instance_valid(interact_target):
+			interact_target.interact()
+	if Input.is_action_just_pressed("testaddevidence1"):
+		collect_evidence("knife01")
+	if Input.is_action_just_pressed("testaddevidence2"):
+		collect_evidence("knife02")
+	if Input.is_action_just_pressed("testaddevidence3"):
+		collect_evidence("paper01")
+	if Input.is_action_just_pressed("testaddevidence4"):
+		collect_evidence("magnifying")
+
 
 # disables input when entering transition
 func _on_transition_started():
@@ -60,12 +96,6 @@ func _on_transition_started():
 	await SceneTransition.on_transition_finished
 	speed = 150
 
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("Interact"):
-		if not is_instance_valid(interact_target):
-			interact_target = _pick_next_candidate()
-		if is_instance_valid(interact_target):
-			interact_target.interact()
 
 func _on_interaction_area_area_entered(area: Area2D) -> void:
 	if area is Interactable:
