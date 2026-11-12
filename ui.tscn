@@ -216,7 +216,6 @@ theme_override_font_sizes/font_size = 4
 text = "Morgue"
 
 [node name="EvidenceMenuAndButtonsContainer" type="HBoxContainer" parent="PopupMenu" unique_id=283235307]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -253,18 +252,23 @@ anchor_left = 0.418
 anchor_top = 0.527
 anchor_right = 0.707
 anchor_bottom = 0.744
-offset_left = -199.8
-offset_top = -129.25
-offset_right = 106.79999
-offset_bottom = 126.0
+offset_left = -43.16
+offset_top = -11.050003
+offset_right = 26.159996
+offset_bottom = 26.399994
+theme_override_font_sizes/font_size = 8
 text = "Evidence text"
 
 [node name="Evidence0texture" type="TextureRect" parent="PopupMenu/EvidenceMenuAndButtonsContainer/EvidenceMenuContainer/EvidencePage0" unique_id=839602490]
-layout_mode = 0
-offset_left = 45.0
-offset_top = 37.0
-offset_right = 560.0
-offset_bottom = 246.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.554
+anchor_right = 0.5
+anchor_bottom = 0.554
+offset_left = -48.0
+offset_top = -72.100006
+offset_bottom = -27.100006
 
 [node name="EvidencePage1" type="NinePatchRect" parent="PopupMenu/EvidenceMenuAndButtonsContainer/EvidenceMenuContainer" unique_id=972062390]
 visible = false
