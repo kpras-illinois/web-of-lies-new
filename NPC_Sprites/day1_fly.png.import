@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxj0angecgo1t"
-path="res://.godot/imported/A_office_reference_1x1.png-3495a80f1842f51b341a9342ce1708b6.ctex"
+uid="uid://cvhs46tv8rvp2"
+path="res://.godot/imported/day1_fly.png-f2f4c3f02309968ace746e58eb35ca10.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Room_Backgrounds/A_office_reference_1x1.png"
-dest_files=["res://.godot/imported/A_office_reference_1x1.png-3495a80f1842f51b341a9342ce1708b6.ctex"]
+source_file="res://NPC_Sprites/day1_fly.png"
+dest_files=["res://.godot/imported/day1_fly.png-f2f4c3f02309968ace746e58eb35ca10.ctex"]
 
 [params]
 
