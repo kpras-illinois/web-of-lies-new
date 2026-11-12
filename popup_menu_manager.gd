@@ -7,9 +7,16 @@ extends MarginContainer
 # probably temporary code down here? Idk this feels like poor programming lmao
 @export var evidence_page_0: NinePatchRect
 @export var evidence_page_1: NinePatchRect
+@export var page0texture: TextureRect
+@export var page0text: Label
 
+var default_texture = load("res://icon.svg")
+
+
+var inventory = EvidenceDatabase.evidenceinventory
 var evidencePage: int = 0
-var maxEvidencePage: int = 1
+var maxEvidencePage: int = inventory.get_evidence_count()
+
 # boolean to unlock morgue as teleportable location
 # currently has no way to be true
 var morgueUnlocked: bool = true
@@ -30,6 +37,7 @@ func _on_toggle_menu_button_pressed() -> void:
 
 # on pressing evidence toggle button, reveals menu and hides original toggle
 func _on_evidence_sheet_toggle_button_pressed() -> void:
+	
 	toggle_visibility(evidence_screen)
 	toggle_visibility(menu_screen)
 
@@ -60,33 +68,25 @@ func _on_travel_to_morgue_pressed() -> void:
 		SceneTransition.transition()
 		await SceneTransition.on_transition_finished
 		get_tree().change_scene_to_file("res://Rooms/morgue_reception.tscn")
-
-# when pressed, decreases page by 1, then moves to the correct page
+		
+func _show_page(step: int) -> void:
+	var items = inventory.get_all_evidence()
+	if items.is_empty():
+		page0texture.texture = default_texture
+		page0text.text = "Your evidence is empty"
+		evidence_page_0.visible = true
+		return
+	# wrapi wraps
+	evidencePage = wrapi(evidencePage + step, 0, items.size())
+ 
+	var item: EvidenceItem = items[evidencePage]
+	page0texture.texture = item.icon
+	page0text.text = item.description
+	evidence_page_0.visible = true
+ 
 func _on_evidence_menu_left_button_pressed() -> void:
-	evidencePage -= 1
-	# wraps around to last page if under
-	if evidencePage < 0:
-		evidencePage = maxEvidencePage
-	# this is where my good page transition will go
-	# IF I HAD ONE
-	if evidencePage == 0:
-		evidence_page_0.visible = true
-		evidence_page_1.visible = false
-	elif evidencePage == 1:
-		evidence_page_0.visible = false
-		evidence_page_1.visible = true
-
-# when pressed, increases page by 1, then moves to the correct page
+	_show_page(-1)
+ 
 func _on_evidence_menu_right_button_pressed() -> void:
-	evidencePage += 1
-	# wraps around to first page if over
-	if evidencePage > maxEvidencePage:
-		evidencePage = 0
-	# this is where my good page transition will go
-	# IF I HAD ONE
-	if evidencePage == 0:
-		evidence_page_0.visible = true
-		evidence_page_1.visible = false
-	elif evidencePage == 1:
-		evidence_page_0.visible = false
-		evidence_page_1.visible = true
+	_show_page(1)
+ 

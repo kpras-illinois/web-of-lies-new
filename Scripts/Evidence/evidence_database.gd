@@ -1,10 +1,11 @@
 extends Node
 var evidencelog: Dictionary = {}
-
+var evidenceinventory = EvidenceInventory.new()#new inventory
+	
 
 func _ready() -> void:
 	register_items()
-
+	
 
 func register_items() -> void:
 	var all_evidence = [
@@ -16,7 +17,5 @@ func register_items() -> void:
 
 	for evidence in all_evidence:
 		evidencelog[evidence.id] = evidence
-
-
 func get_evidence(item_id: String) -> EvidenceItem:
 	return evidencelog.get(item_id)

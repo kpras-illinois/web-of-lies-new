@@ -82,7 +82,7 @@ shape = SubResource("RectangleShape2D_78qyl")
 
 [node name="PlayerCamera" type="Camera2D" parent="." unique_id=869424374]
 
-[node name="s" type="AnimatedSprite2D" parent="." unique_id=1022264948]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1022264948]
 scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_yuk3x")
 animation = &"Walk"

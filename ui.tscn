@@ -12,7 +12,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PopupMenu" type="MarginContainer" parent="." unique_id=1306787920 node_paths=PackedStringArray("menu_screen", "open_menu_screen", "fast_travel_screen", "evidence_screen", "evidence_page_0", "evidence_page_1")]
+[node name="PopupMenu" type="MarginContainer" parent="." unique_id=1306787920 node_paths=PackedStringArray("menu_screen", "open_menu_screen", "fast_travel_screen", "evidence_screen", "evidence_page_0", "page0texture", "page0text")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,7 +25,8 @@ open_menu_screen = NodePath("BaseMenuButtonContainer")
 fast_travel_screen = NodePath("FastTravelContainer")
 evidence_screen = NodePath("EvidenceMenuAndButtonsContainer")
 evidence_page_0 = NodePath("EvidenceMenuAndButtonsContainer/EvidenceMenuContainer/EvidencePage0")
-evidence_page_1 = NodePath("EvidenceMenuAndButtonsContainer/EvidenceMenuContainer/EvidencePage1")
+page0texture = NodePath("EvidenceMenuAndButtonsContainer/EvidenceMenuContainer/EvidencePage0/Evidence0texture")
+page0text = NodePath("EvidenceMenuAndButtonsContainer/EvidenceMenuContainer/EvidencePage0/Label")
 
 [node name="BaseMenuContainer" type="VBoxContainer" parent="PopupMenu" unique_id=1047635056]
 visible = false
@@ -218,6 +219,26 @@ patch_margin_left = 8
 patch_margin_top = 8
 patch_margin_right = 8
 patch_margin_bottom = 8
+
+[node name="Label" type="Label" parent="PopupMenu/EvidenceMenuAndButtonsContainer/EvidenceMenuContainer/EvidencePage0" unique_id=425567471]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.418
+anchor_top = 0.527
+anchor_right = 0.707
+anchor_bottom = 0.744
+offset_left = -199.8
+offset_top = -129.25
+offset_right = 106.79999
+offset_bottom = 126.0
+text = "Evidence text"
+
+[node name="Evidence0texture" type="TextureRect" parent="PopupMenu/EvidenceMenuAndButtonsContainer/EvidenceMenuContainer/EvidencePage0" unique_id=839602490]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 37.0
+offset_right = 560.0
+offset_bottom = 246.0
 
 [node name="EvidencePage1" type="NinePatchRect" parent="PopupMenu/EvidenceMenuAndButtonsContainer/EvidenceMenuContainer" unique_id=972062390]
 visible = false
