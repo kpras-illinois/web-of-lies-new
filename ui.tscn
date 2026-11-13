@@ -216,6 +216,7 @@ theme_override_font_sizes/font_size = 4
 text = "Morgue"
 
 [node name="EvidenceMenuAndButtonsContainer" type="HBoxContainer" parent="PopupMenu" unique_id=283235307]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
