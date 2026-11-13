@@ -9,7 +9,6 @@ border_width_left = 10
 border_width_right = 10
 
 [node name="DialogueDrawer" type="MarginContainer" unique_id=2137612320]
-anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
