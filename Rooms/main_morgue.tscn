@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cvhs46tv8rvp2" path="res://NPC_Sprites/day1_fly.png" id="5_4sxtg"]
 [ext_resource type="Script" uid="uid://brpxjfr6adlk2" path="res://Rooms/door_to_office_from_main_morgue.gd" id="5_kxdhl"]
 [ext_resource type="Script" uid="uid://bev601kmigas3" path="res://Rooms/fly_collision_box.gd" id="6_v1ivr"]
+[ext_resource type="Script" uid="uid://c36rqkpwrsvy8" path="res://Rooms/door_to_mart_office.gd" id="8_gp11j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2d5gy"]
 texture = ExtResource("1_72sf4")
@@ -1962,9 +1963,6 @@ sources/0 = SubResource("TileSetAtlasSource_2d5gy")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_08lcq"]
 size = Vector2(20, 142)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vb620"]
-size = Vector2(20, 141)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_78qyl"]
 size = Vector2(9, 72)
 
@@ -1981,6 +1979,9 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7eu7v"]
+size = Vector2(20, 125)
 
 [node name="MainMorgue" type="Node2D" unique_id=855188080]
 script = ExtResource("1_2d5gy")
@@ -2068,12 +2069,6 @@ remote_path = NodePath("../../PlayerCamera")
 position = Vector2(-101, 101)
 shape = SubResource("RectangleShape2D_08lcq")
 
-[node name="MorgueRightWallStaticBody" type="StaticBody2D" parent="." unique_id=97378958]
-
-[node name="RightMorgueInvisibleWall" type="CollisionShape2D" parent="MorgueRightWallStaticBody" unique_id=767283919]
-position = Vector2(492, 101)
-shape = SubResource("RectangleShape2D_vb620")
-
 [node name="SpawnPoint" type="Marker2D" parent="." unique_id=382885589]
 position = Vector2(-62, 140)
 
@@ -2101,7 +2096,16 @@ position = Vector2(427, 132)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1119915582]
 sprite_frames = SubResource("SpriteFrames_l26pu")
 
+[node name="DoorToMartOffice" type="Area2D" parent="." unique_id=430349451]
+script = ExtResource("8_gp11j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorToMartOffice" unique_id=1390861198]
+position = Vector2(490, 101.5)
+shape = SubResource("RectangleShape2D_7eu7v")
+
 [connection signal="body_entered" from="DoorToOfficeFromMainMorgue" to="DoorToOfficeFromMainMorgue" method="_on_body_entered"]
 [connection signal="body_exited" from="DoorToOfficeFromMainMorgue" to="DoorToOfficeFromMainMorgue" method="_on_body_exited"]
 [connection signal="body_entered" from="FlyCollisionBox" to="FlyCollisionBox" method="_on_body_entered"]
 [connection signal="body_exited" from="FlyCollisionBox" to="FlyCollisionBox" method="_on_body_exited"]
+[connection signal="body_entered" from="DoorToMartOffice" to="DoorToMartOffice" method="_on_body_entered"]
+[connection signal="body_exited" from="DoorToMartOffice" to="DoorToMartOffice" method="_on_body_exited"]

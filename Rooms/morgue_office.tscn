@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://b5uvrsawxn01x" path="res://Room_Backgrounds/FIXED_morgue_office_sheet.png" id="2_krytt"]
 [ext_resource type="Texture2D" uid="uid://cnpw6o2ls027g" path="res://Item_Sprites/morgue_cupboard.png" id="4_pxvgg"]
 [ext_resource type="Script" uid="uid://dhwgwxly4gwgw" path="res://Rooms/left_morgue_office_door.gd" id="6_pxvgg"]
-[ext_resource type="Script" uid="uid://8gca62ku3gfv" path="res://Rooms/right_morgue_office_door.gd" id="7_j6rlp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j6rlp"]
 texture = ExtResource("2_krytt")
@@ -22,8 +21,8 @@ sources/2 = SubResource("TileSetAtlasSource_j6rlp")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_78qyl"]
 size = Vector2(10, 108)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7eu7v"]
-size = Vector2(10, 108)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_08lcq"]
+size = Vector2(20, 102)
 
 [node name="MorgueOffice" type="Node2D" unique_id=1357315415]
 script = ExtResource("1_j6ci1")
@@ -107,7 +106,7 @@ region_enabled = true
 region_rect = Rect2(117, 221, 94, 24)
 
 [node name="SpawnPoint" type="Marker2D" parent="." unique_id=2011612226]
-position = Vector2(200, 81)
+position = Vector2(50, 81)
 
 [node name="LeftMorgueOfficeDoor" type="Area2D" parent="." unique_id=730622843]
 script = ExtResource("6_pxvgg")
@@ -116,14 +115,11 @@ script = ExtResource("6_pxvgg")
 position = Vector2(7, 59)
 shape = SubResource("RectangleShape2D_78qyl")
 
-[node name="RightMorgueOfficeDoor" type="Area2D" parent="." unique_id=1692060215]
-script = ExtResource("7_j6rlp")
+[node name="RightWall" type="StaticBody2D" parent="." unique_id=135324844]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RightMorgueOfficeDoor" unique_id=48512145]
-position = Vector2(316, 59)
-shape = SubResource("RectangleShape2D_7eu7v")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall" unique_id=1343470251]
+position = Vector2(322, 57)
+shape = SubResource("RectangleShape2D_08lcq")
 
 [connection signal="body_entered" from="LeftMorgueOfficeDoor" to="LeftMorgueOfficeDoor" method="_on_body_entered"]
 [connection signal="body_exited" from="LeftMorgueOfficeDoor" to="LeftMorgueOfficeDoor" method="_on_body_exited"]
-[connection signal="body_entered" from="RightMorgueOfficeDoor" to="RightMorgueOfficeDoor" method="_on_body_entered"]
-[connection signal="body_exited" from="RightMorgueOfficeDoor" to="RightMorgueOfficeDoor" method="_on_body_exited"]
