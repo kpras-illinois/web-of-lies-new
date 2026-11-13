@@ -3670,6 +3670,6 @@ position = Vector2(393, 142)
 shape = SubResource("RectangleShape2D_7eu7v")
 
 [node name="SpawnPoint" type="Marker2D" parent="." unique_id=900436020]
-position = Vector2(76, 175)
+position = Vector2(76, 177)
 
 [connection signal="body_entered" from="TransitionToMainMorgue" to="TransitionToMainMorgue" method="_on_body_entered"]

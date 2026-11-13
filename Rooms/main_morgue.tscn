@@ -2056,7 +2056,7 @@ position = Vector2(492, 101)
 shape = SubResource("RectangleShape2D_vb620")
 
 [node name="SpawnPoint" type="Marker2D" parent="." unique_id=382885589]
-position = Vector2(-62, 138)
+position = Vector2(-62, 140)
 
 [node name="DoorToReception" type="Area2D" parent="." unique_id=1737970518]
 script = ExtResource("5_4sxtg")

@@ -2164,7 +2164,7 @@ shape = SubResource("RectangleShape2D_08lcq")
 position = Vector2(470, 144)
 
 [node name="ExteriorSpawnPoint" type="Marker2D" parent="." unique_id=37758118]
-position = Vector2(212, 144)
+position = Vector2(212, 146)
 
 [connection signal="body_entered" from="DoorToOffice" to="DoorToOffice" method="_on_body_entered"]
 [connection signal="body_exited" from="DoorToOffice" to="DoorToOffice" method="_on_body_exited"]

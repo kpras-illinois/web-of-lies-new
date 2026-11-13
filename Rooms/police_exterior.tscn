@@ -197,7 +197,7 @@ limit_bottom = 225
 remote_path = NodePath("../../PlayerCamera")
 
 [node name="SpawnPoint" type="Marker2D" parent="." unique_id=2144966644]
-position = Vector2(100, 176)
+position = Vector2(100, 178)
 
 [node name="LeftInvisibleWall" type="StaticBody2D" parent="." unique_id=575883968]
 

@@ -1,0 +1,129 @@
+[gd_scene format=3 uid="uid://c004nyboss510"]
+
+[ext_resource type="PackedScene" uid="uid://ckopckojylijj" path="res://player.tscn" id="1_hshn5"]
+[ext_resource type="Script" uid="uid://djtyuxkfmvkrr" path="res://Rooms/morgue_office.gd" id="1_j6ci1"]
+[ext_resource type="Texture2D" uid="uid://b7m0m2puovu15" path="res://Room_Backgrounds/morgue_office_sheet.png" id="1_l4o5l"]
+[ext_resource type="Texture2D" uid="uid://b5uvrsawxn01x" path="res://Room_Backgrounds/FIXED_morgue_office_sheet.png" id="2_krytt"]
+[ext_resource type="Texture2D" uid="uid://cnpw6o2ls027g" path="res://Item_Sprites/morgue_cupboard.png" id="4_pxvgg"]
+[ext_resource type="Script" uid="uid://dhwgwxly4gwgw" path="res://Rooms/left_morgue_office_door.gd" id="6_pxvgg"]
+[ext_resource type="Script" uid="uid://8gca62ku3gfv" path="res://Rooms/right_morgue_office_door.gd" id="7_j6rlp"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j6rlp"]
+texture = ExtResource("2_krytt")
+margins = Vector2i(3, 3)
+texture_region_size = Vector2i(5, 5)
+2:1/size_in_atlas = Vector2i(64, 22)
+2:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_08lcq"]
+tile_size = Vector2i(5, 5)
+sources/2 = SubResource("TileSetAtlasSource_j6rlp")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_78qyl"]
+size = Vector2(10, 108)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7eu7v"]
+size = Vector2(10, 108)
+
+[node name="MorgueOffice" type="Node2D" unique_id=1357315415]
+script = ExtResource("1_j6ci1")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=203442170]
+tile_map_data = PackedByteArray(0, 0, 32, 0, 11, 0, 2, 0, 2, 0, 1, 0, 0, 0)
+tile_set = SubResource("TileSet_08lcq")
+
+[node name="BookCase" type="Sprite2D" parent="." unique_id=58693913]
+position = Vector2(185, 60)
+texture = ExtResource("1_l4o5l")
+region_enabled = true
+region_rect = Rect2(146, 119, 84, 89)
+
+[node name="MortDesk" type="Sprite2D" parent="." unique_id=1282400680]
+position = Vector2(64, 83)
+texture = ExtResource("1_l4o5l")
+region_enabled = true
+region_rect = Rect2(28, 164, 79, 44)
+
+[node name="LeftPicture" type="Sprite2D" parent="." unique_id=706797138]
+position = Vector2(34, 54)
+texture = ExtResource("1_l4o5l")
+region_enabled = true
+region_rect = Rect2(24, 147, 22, 16)
+region_filter_clip_enabled = true
+
+[node name="RightPicture" type="Sprite2D" parent="." unique_id=201009279]
+position = Vector2(103, 51)
+texture = ExtResource("1_l4o5l")
+region_enabled = true
+region_rect = Rect2(87, 141, 35, 23)
+
+[node name="BugEmblem" type="Sprite2D" parent="." unique_id=1804561683]
+position = Vector2(64, 46)
+texture = ExtResource("1_l4o5l")
+region_enabled = true
+region_rect = Rect2(52, 138, 28, 23)
+
+[node name="LockedCupboard" type="Sprite2D" parent="." unique_id=820193513]
+position = Vector2(275, 67)
+texture = ExtResource("4_pxvgg")
+region_enabled = true
+region_rect = Rect2(20, 6, 61, 76)
+
+[node name="LeftLight" type="Sprite2D" parent="." unique_id=2036457568]
+position = Vector2(64, 19)
+texture = ExtResource("1_l4o5l")
+region_enabled = true
+region_rect = Rect2(44, 262, 54, 13)
+
+[node name="MiddleLight" type="Sprite2D" parent="." unique_id=279891795]
+position = Vector2(163, 19)
+texture = ExtResource("1_l4o5l")
+region_enabled = true
+region_rect = Rect2(143, 262, 54, 13)
+
+[node name="RightLight" type="Sprite2D" parent="." unique_id=1089719465]
+position = Vector2(272, 19)
+texture = ExtResource("1_l4o5l")
+region_enabled = true
+region_rect = Rect2(252, 263, 54, 13)
+
+[node name="PlayerCamera" type="Camera2D" parent="." unique_id=928017994]
+position = Vector2(0, -26)
+limit_left = 3
+limit_top = 5
+limit_right = 320
+limit_bottom = 113
+
+[node name="Player" parent="." unique_id=1836776631 instance=ExtResource("1_hshn5")]
+position = Vector2(0, -26)
+
+[node name="CameraRemote" type="RemoteTransform2D" parent="Player" unique_id=1329793773]
+remote_path = NodePath("../../PlayerCamera")
+
+[node name="ClothedTable" type="Sprite2D" parent="." unique_id=506709308]
+position = Vector2(159, 93)
+texture = ExtResource("1_l4o5l")
+region_enabled = true
+region_rect = Rect2(117, 221, 94, 24)
+
+[node name="SpawnPoint" type="Marker2D" parent="." unique_id=2011612226]
+position = Vector2(200, 81)
+
+[node name="LeftMorgueOfficeDoor" type="Area2D" parent="." unique_id=730622843]
+script = ExtResource("6_pxvgg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftMorgueOfficeDoor" unique_id=1295894355]
+position = Vector2(7, 59)
+shape = SubResource("RectangleShape2D_78qyl")
+
+[node name="RightMorgueOfficeDoor" type="Area2D" parent="." unique_id=1692060215]
+script = ExtResource("7_j6rlp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightMorgueOfficeDoor" unique_id=48512145]
+position = Vector2(316, 59)
+shape = SubResource("RectangleShape2D_7eu7v")
+
+[connection signal="body_entered" from="LeftMorgueOfficeDoor" to="LeftMorgueOfficeDoor" method="_on_body_entered"]
+[connection signal="body_exited" from="LeftMorgueOfficeDoor" to="LeftMorgueOfficeDoor" method="_on_body_exited"]
+[connection signal="body_entered" from="RightMorgueOfficeDoor" to="RightMorgueOfficeDoor" method="_on_body_entered"]
+[connection signal="body_exited" from="RightMorgueOfficeDoor" to="RightMorgueOfficeDoor" method="_on_body_exited"]
