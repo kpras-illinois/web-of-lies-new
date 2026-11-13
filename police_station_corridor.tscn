@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cwpfcd8nw33pm" path="res://Room_Backgrounds/Police_Station_Corridor_sheet_1x1.png" id="2_7tsfr"]
 [ext_resource type="PackedScene" uid="uid://ckopckojylijj" path="res://player.tscn" id="3_5k25i"]
 [ext_resource type="PackedScene" uid="uid://bki124eqmpcqg" path="res://ui.tscn" id="5_pkhbd"]
+[ext_resource type="Script" uid="uid://d00onnhkivnfj" path="res://door_to_office.gd" id="6_7mga5"]
 [ext_resource type="AudioStream" uid="uid://cua1h46sp6xhw" path="res://Background_Music/Welcome to the Morgue.mp3" id="6_ogits"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7tsfr"]
@@ -2031,6 +2032,9 @@ texture_region_size = Vector2i(8, 8)
 tile_size = Vector2i(8, 8)
 sources/4 = SubResource("TileSetAtlasSource_7tsfr")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_78qyl"]
+size = Vector2(8, 74)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vb620"]
 size = Vector2(20, 136)
 
@@ -2128,6 +2132,13 @@ editor_draw_limits = true
 [node name="PlayerCameraRemote" type="RemoteTransform2D" parent="Player" unique_id=1912616985]
 remote_path = NodePath("../../PlayerCamera")
 
+[node name="DoorToOffice" type="Area2D" parent="." unique_id=284170891]
+script = ExtResource("6_7mga5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorToOffice" unique_id=1741221543]
+position = Vector2(487, 133)
+shape = SubResource("RectangleShape2D_78qyl")
+
 [node name="UICanvasLayer" type="CanvasLayer" parent="." unique_id=673719852]
 
 [node name="UI" parent="UICanvasLayer" unique_id=1540289603 instance=ExtResource("5_pkhbd")]
@@ -2139,7 +2150,7 @@ autoplay = true
 [node name="PoliceCorridorLeftWallStaticBody" type="StaticBody2D" parent="." unique_id=2123501630]
 
 [node name="LeftPoliceCorridorInvisibleWall" type="CollisionShape2D" parent="PoliceCorridorLeftWallStaticBody" unique_id=1328246206]
-position = Vector2(500, 110)
+position = Vector2(503, 110)
 shape = SubResource("RectangleShape2D_vb620")
 
 [node name="PoliceCorridorRightWallStaticBody" type="StaticBody2D" parent="." unique_id=512653419]
@@ -2149,5 +2160,11 @@ position = Vector2(-95, -5)
 position = Vector2(2, 115)
 shape = SubResource("RectangleShape2D_08lcq")
 
-[node name="SpawnPoint" type="Marker2D" parent="." unique_id=1359197627]
+[node name="OfficeSpawnPoint" type="Marker2D" parent="." unique_id=1359197627]
 position = Vector2(470, 144)
+
+[node name="ExteriorSpawnPoint" type="Marker2D" parent="." unique_id=37758118]
+position = Vector2(212, 146)
+
+[connection signal="body_entered" from="DoorToOffice" to="DoorToOffice" method="_on_body_entered"]
+[connection signal="body_exited" from="DoorToOffice" to="DoorToOffice" method="_on_body_exited"]

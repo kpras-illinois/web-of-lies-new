@@ -8,4 +8,4 @@ func _on_body_entered(_body: PhysicsBody2D):
 	SceneTransition.transition()
 	await SceneTransition.on_transition_finished
 	entered = false
-	get_tree().change_scene_to_file("res://Rooms/main_morgue.tscn")
+	get_tree().change_scene_to_file("res://Rooms/morgue_office.tscn")
