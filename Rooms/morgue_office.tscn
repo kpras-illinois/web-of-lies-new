@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b7m0m2puovu15" path="res://Room_Backgrounds/morgue_office_sheet.png" id="1_l4o5l"]
 [ext_resource type="Texture2D" uid="uid://b5uvrsawxn01x" path="res://Room_Backgrounds/FIXED_morgue_office_sheet.png" id="2_krytt"]
 [ext_resource type="Texture2D" uid="uid://cnpw6o2ls027g" path="res://Item_Sprites/morgue_cupboard.png" id="4_pxvgg"]
+[ext_resource type="PackedScene" uid="uid://bki124eqmpcqg" path="res://ui.tscn" id="6_j6rlp"]
 [ext_resource type="Script" uid="uid://dhwgwxly4gwgw" path="res://Rooms/left_morgue_office_door.gd" id="6_pxvgg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j6rlp"]
@@ -104,6 +105,10 @@ position = Vector2(159, 93)
 texture = ExtResource("1_l4o5l")
 region_enabled = true
 region_rect = Rect2(117, 221, 94, 24)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=81698135]
+
+[node name="UI" parent="CanvasLayer" unique_id=1540289603 instance=ExtResource("6_j6rlp")]
 
 [node name="SpawnPoint" type="Marker2D" parent="." unique_id=2011612226]
 position = Vector2(50, 81)
