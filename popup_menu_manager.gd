@@ -4,6 +4,7 @@ extends MarginContainer
 @export var open_menu_screen: VBoxContainer
 @export var fast_travel_screen: MarginContainer
 @export var evidence_screen: HBoxContainer
+@export var settings_menu: VBoxContainer
 # probably temporary code down here? Idk this feels like poor programming lmao
 @export var evidence_page_0: NinePatchRect
 @export var evidence_page_1: NinePatchRect
@@ -44,6 +45,10 @@ func _on_evidence_sheet_toggle_button_pressed() -> void:
 # on pressing toggle button, reveals fast travel menu and hides regular menu
 func _on_travel_to_toggle_button_pressed() -> void:
 	toggle_visibility(fast_travel_screen)
+	toggle_visibility(menu_screen)
+
+func _on_settings_toggle_button_pressed() -> void:
+	toggle_visibility(settings_menu)
 	toggle_visibility(menu_screen)
 
 # on pressing takes player to WEB's office
@@ -89,4 +94,3 @@ func _on_evidence_menu_left_button_pressed() -> void:
  
 func _on_evidence_menu_right_button_pressed() -> void:
 	_show_page(1)
- 

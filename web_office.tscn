@@ -1215,6 +1215,7 @@ size = Vector2(29.5, 126)
 
 [node name="WebOffice" type="Node2D" unique_id=1668433638]
 script = ExtResource("1_v504c")
+web_office_music = ExtResource("6_0syv5")
 
 [node name="WebOfficeBackground" type="TileMapLayer" parent="." unique_id=1518715813]
 position = Vector2(400, 250)
@@ -1299,10 +1300,6 @@ shape = SubResource("RectangleShape2D_60qff")
 [node name="UI" parent="UICanvasLayer" unique_id=1540289603 instance=ExtResource("5_vl682")]
 offset_top = 1.0
 offset_bottom = 1.0
-
-[node name="WebOfficeAudio" type="AudioStreamPlayer" parent="." unique_id=945576119]
-stream = ExtResource("6_0syv5")
-autoplay = true
 
 [node name="LeftOfficeWallStaticBody" type="StaticBody2D" parent="." unique_id=1198831074]
 

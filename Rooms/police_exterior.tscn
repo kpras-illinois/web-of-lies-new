@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c5twygqwb62lw" path="res://Item_Sprites/police_building_door.png" id="3_x6g1l"]
 [ext_resource type="PackedScene" uid="uid://ckopckojylijj" path="res://player.tscn" id="5_8ko04"]
 [ext_resource type="Script" uid="uid://dxy18it7jm185" path="res://Rooms/police_exterior_door_hitbox.gd" id="6_8ko04"]
+[ext_resource type="PackedScene" uid="uid://bki124eqmpcqg" path="res://ui.tscn" id="7_xrtr7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ydf2m"]
 texture = ExtResource("1_sc7kv")
@@ -217,6 +218,10 @@ script = ExtResource("6_8ko04")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PoliceExteriorDoorHitbox" unique_id=550154676]
 position = Vector2(199.75, 162)
 shape = SubResource("RectangleShape2D_08lcq")
+
+[node name="UICanvasLayer" type="CanvasLayer" parent="." unique_id=1043033551]
+
+[node name="UI" parent="UICanvasLayer" unique_id=1540289603 instance=ExtResource("7_xrtr7")]
 
 [connection signal="body_entered" from="PoliceExteriorDoorHitbox" to="PoliceExteriorDoorHitbox" method="_on_body_entered"]
 [connection signal="body_exited" from="PoliceExteriorDoorHitbox" to="PoliceExteriorDoorHitbox" method="_on_body_exited"]

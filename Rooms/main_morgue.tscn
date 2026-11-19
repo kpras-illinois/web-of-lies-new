@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d0b7cp0i5vm8k" path="res://Rooms/main_morgue.gd" id="1_2d5gy"]
 [ext_resource type="Texture2D" uid="uid://gb70n3kfx11a" path="res://Room_Backgrounds/Morgue_sheet_1x1. (1).png" id="1_72sf4"]
+[ext_resource type="AudioStream" uid="uid://cua1h46sp6xhw" path="res://Background_Music/Welcome to the Morgue.mp3" id="2_o6ith"]
 [ext_resource type="PackedScene" uid="uid://ckopckojylijj" path="res://player.tscn" id="2_w6og8"]
 [ext_resource type="PackedScene" uid="uid://bki124eqmpcqg" path="res://ui.tscn" id="3_72sf4"]
 [ext_resource type="Texture2D" uid="uid://cvhs46tv8rvp2" path="res://NPC_Sprites/day1_fly.png" id="5_4sxtg"]
@@ -1985,6 +1986,7 @@ size = Vector2(20, 125)
 
 [node name="MainMorgue" type="Node2D" unique_id=855188080]
 script = ExtResource("1_2d5gy")
+morgue_music = ExtResource("2_o6ith")
 
 [node name="MainMorgueBackground" type="TileMapLayer" parent="." unique_id=714435792]
 position = Vector2(400, 250)

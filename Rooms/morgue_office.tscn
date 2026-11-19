@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://djtyuxkfmvkrr" path="res://Rooms/morgue_office.gd" id="1_j6ci1"]
 [ext_resource type="Texture2D" uid="uid://b7m0m2puovu15" path="res://Room_Backgrounds/morgue_office_sheet.png" id="1_l4o5l"]
 [ext_resource type="Texture2D" uid="uid://b5uvrsawxn01x" path="res://Room_Backgrounds/FIXED_morgue_office_sheet.png" id="2_krytt"]
+[ext_resource type="AudioStream" uid="uid://cua1h46sp6xhw" path="res://Background_Music/Welcome to the Morgue.mp3" id="2_tpw83"]
 [ext_resource type="Texture2D" uid="uid://cnpw6o2ls027g" path="res://Item_Sprites/morgue_cupboard.png" id="4_pxvgg"]
 [ext_resource type="PackedScene" uid="uid://bki124eqmpcqg" path="res://ui.tscn" id="6_j6rlp"]
 [ext_resource type="Script" uid="uid://dhwgwxly4gwgw" path="res://Rooms/left_morgue_office_door.gd" id="6_pxvgg"]
@@ -27,6 +28,7 @@ size = Vector2(20, 102)
 
 [node name="MorgueOffice" type="Node2D" unique_id=1357315415]
 script = ExtResource("1_j6ci1")
+morgue_music = ExtResource("2_tpw83")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=203442170]
 tile_map_data = PackedByteArray(0, 0, 32, 0, 11, 0, 2, 0, 2, 0, 1, 0, 0, 0)
