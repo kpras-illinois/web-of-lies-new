@@ -344,6 +344,28 @@ patch_margin_top = 5
 patch_margin_right = 5
 patch_margin_bottom = 5
 
+[node name="MarginContainer" type="MarginContainer" parent="PopupMenu/SettingsMenuContainer/SettingsMenu/SettingsAndToggle/NinePatchRect" unique_id=806510328]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupMenu/SettingsMenuContainer/SettingsMenu/SettingsAndToggle/NinePatchRect/MarginContainer" unique_id=212558508]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PopupMenu/SettingsMenuContainer/SettingsMenu/SettingsAndToggle/NinePatchRect/MarginContainer/VBoxContainer" unique_id=1359138018]
+layout_mode = 2
+
+[node name="MuteButton" type="Button" parent="PopupMenu/SettingsMenuContainer/SettingsMenu/SettingsAndToggle/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1394352555]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+theme_override_font_sizes/font_size = 4
+text = "Mute"
+
 [node name="SettingsMenuSeperator" type="Control" parent="PopupMenu/SettingsMenuContainer" unique_id=1152439167]
 layout_mode = 2
 
@@ -360,3 +382,4 @@ layout_mode = 2
 [connection signal="pressed" from="PopupMenu/EvidenceMenuAndButtonsContainer/EvidenceMenuContainer/EvidenceMenuToggleButtonContainer/EvidenceMenuToggleButtonMarginContainer/EvidenceSheetToggleButton" to="PopupMenu" method="_on_evidence_sheet_toggle_button_pressed"]
 [connection signal="pressed" from="PopupMenu/EvidenceMenuAndButtonsContainer/EvidenceMenuRightButton" to="PopupMenu" method="_on_evidence_menu_right_button_pressed"]
 [connection signal="pressed" from="PopupMenu/SettingsMenuContainer/SettingsMenu/SettingsAndToggle/SettingsToggleButton" to="PopupMenu" method="_on_settings_toggle_button_pressed"]
+[connection signal="pressed" from="PopupMenu/SettingsMenuContainer/SettingsMenu/SettingsAndToggle/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/MuteButton" to="PopupMenu" method="_on_mute_button_pressed"]

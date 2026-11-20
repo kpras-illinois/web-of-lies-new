@@ -3,4 +3,5 @@
 [ext_resource type="Script" uid="uid://bwre2fhlquk8k" path="res://background_music_manager.gd" id="1_1ep4m"]
 
 [node name="BackgroundMusicManager" type="AudioStreamPlayer" unique_id=1834015800]
+bus = &"BGM"
 script = ExtResource("1_1ep4m")

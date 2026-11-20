@@ -94,3 +94,6 @@ func _on_evidence_menu_left_button_pressed() -> void:
  
 func _on_evidence_menu_right_button_pressed() -> void:
 	_show_page(1)
+
+func _on_mute_button_pressed() -> void:
+	BackgroundMusicManager.stop_music()
