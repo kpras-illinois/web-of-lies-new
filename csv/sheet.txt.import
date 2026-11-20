@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://lqynfhx3wrgx"
+
+[deps]
+
+files=["res://csv/Book 1 - Sheet1. [Shouting from distance]: WEB!!! ARE YOU SLEEPING ON ANOTHER CASE AGAIN?!.translation"]
+
+source_file="res://csv/Book 1 - Sheet1.txt"
+dest_files=["res://csv/Book 1 - Sheet1. [Shouting from distance]: WEB!!! ARE YOU SLEEPING ON ANOTHER CASE AGAIN?!.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

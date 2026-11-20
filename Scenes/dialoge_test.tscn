@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cu5ai2fi4d4h"]
+
+[ext_resource type="Script" uid="uid://b1nvso4au1wpq" path="res://Scripts/dialoge_test.gd" id="1_lay55"]
+[ext_resource type="Texture2D" uid="uid://dhanekrvm2qv8" path="res://Assets/Untitled.png" id="1_qcj20"]
+[ext_resource type="PackedScene" uid="uid://cmcxbkq40uf2m" path="res://Scenes/dailogue_interface.tscn" id="2_1cn1u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s2lbf"]
+size = Vector2(209, 228)
+
+[node name="Dialoge Test" type="Node2D" unique_id=2011257600]
+script = ExtResource("1_lay55")
+
+[node name="Box" type="CharacterBody2D" parent="." unique_id=1544065469]
+
+[node name="Sprite2D" type="Sprite2D" parent="Box" unique_id=788430264]
+texture = ExtResource("1_qcj20")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box" unique_id=2081614573]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_s2lbf")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1356601571]
+position = Vector2(274, 24)
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=210907891]
+
+[node name="DialogueDrawer" parent="HUD" unique_id=2137612320 instance=ExtResource("2_1cn1u")]

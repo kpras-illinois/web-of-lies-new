@@ -4,6 +4,8 @@ extends CanvasLayer
 @onready var fade_black = $FadeBlack
 @onready var fade_animation = $FadeAnimation
 
+# signal sent out when transition begins
+signal transition_started
 # signal sent out when transition finishes
 signal on_transition_finished
 
@@ -26,5 +28,6 @@ func _on_animation_finished(anim_name):
 	
 # allows us to trigger fading from anywhere in the project
 func transition():
+	transition_started.emit()
 	fade_black.visible = true
 	fade_animation.play("fade_in")

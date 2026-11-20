@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dd6b5i7hgvhih"
-path="res://.godot/imported/Detective_office_asset_sheet.png-9d63fc7673a5a26f969b0eb56ae3c956.ctex"
+uid="uid://cvhs46tv8rvp2"
+path="res://.godot/imported/day1_fly.png-f2f4c3f02309968ace746e58eb35ca10.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Room_Backgrounds/Detective_office_asset_sheet.png"
-dest_files=["res://.godot/imported/Detective_office_asset_sheet.png-9d63fc7673a5a26f969b0eb56ae3c956.ctex"]
+source_file="res://NPC_Sprites/day1_fly.png"
+dest_files=["res://.godot/imported/day1_fly.png-f2f4c3f02309968ace746e58eb35ca10.ctex"]
 
 [params]
 

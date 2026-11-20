@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0jilta7hrhn"
-path="res://.godot/imported/pz_Final_Police_Station_Corridor_Sheet.png-ab61db399eb38a132c9ef7129816de6b.ctex"
+uid="uid://cmmug27dyundl"
+path="res://.godot/imported/morgue_receptionroom.png-4471d816893d0be2ca4426dd493cc48a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Room_Backgrounds/pz_Final_Police_Station_Corridor_Sheet.png"
-dest_files=["res://.godot/imported/pz_Final_Police_Station_Corridor_Sheet.png-ab61db399eb38a132c9ef7129816de6b.ctex"]
+source_file="res://Room_Backgrounds/morgue_receptionroom.png"
+dest_files=["res://.godot/imported/morgue_receptionroom.png-4471d816893d0be2ca4426dd493cc48a.ctex"]
 
 [params]
 

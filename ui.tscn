@@ -12,7 +12,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PopupMenu" type="MarginContainer" parent="." unique_id=1306787920 node_paths=PackedStringArray("menu_screen", "open_menu_screen", "fast_travel_screen", "evidence_screen", "evidence_page_0", "evidence_page_1")]
+[node name="PopupMenu" type="MarginContainer" parent="." unique_id=1306787920 node_paths=PackedStringArray("menu_screen", "open_menu_screen", "fast_travel_screen", "evidence_screen", "evidence_page_0", "page0texture", "page0text")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,14 +25,15 @@ open_menu_screen = NodePath("BaseMenuButtonContainer")
 fast_travel_screen = NodePath("FastTravelContainer")
 evidence_screen = NodePath("EvidenceMenuAndButtonsContainer")
 evidence_page_0 = NodePath("EvidenceMenuAndButtonsContainer/EvidenceMenuContainer/EvidencePage0")
-evidence_page_1 = NodePath("EvidenceMenuAndButtonsContainer/EvidenceMenuContainer/EvidencePage1")
+page0texture = NodePath("EvidenceMenuAndButtonsContainer/EvidenceMenuContainer/EvidencePage0/Evidence0texture")
+page0text = NodePath("EvidenceMenuAndButtonsContainer/EvidenceMenuContainer/EvidencePage0/Label")
 
 [node name="BaseMenuContainer" type="VBoxContainer" parent="PopupMenu" unique_id=1047635056]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
-theme_override_constants/separation = 50
+theme_override_constants/separation = 25
 
 [node name="BaseMenuScreen" type="MarginContainer" parent="PopupMenu/BaseMenuContainer" unique_id=143704432]
 layout_mode = 2
@@ -41,17 +42,18 @@ size_flags_vertical = 4
 
 [node name="MenuAndToggle" type="VBoxContainer" parent="PopupMenu/BaseMenuContainer/BaseMenuScreen" unique_id=313847287]
 layout_mode = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 5
 
 [node name="ToggleMenuButton" type="Button" parent="PopupMenu/BaseMenuContainer/BaseMenuScreen/MenuAndToggle" unique_id=2074574057]
-custom_minimum_size = Vector2(100, 20)
+custom_minimum_size = Vector2(40, 8)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_font_sizes/font_size = 4
 text = "Close Menu"
 
 [node name="NinePatchRect" type="NinePatchRect" parent="PopupMenu/BaseMenuContainer/BaseMenuScreen/MenuAndToggle" unique_id=24089346]
-custom_minimum_size = Vector2(750, 350)
+custom_minimum_size = Vector2(225, 105)
 layout_mode = 2
 texture = ExtResource("1_fyqef")
 region_rect = Rect2(910, 270, 184, 96)
@@ -81,26 +83,31 @@ size_flags_vertical = 4
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/separation = 25
+theme_override_constants/separation = 10
 
 [node name="TravelToToggleButton" type="Button" parent="PopupMenu/BaseMenuContainer/BaseMenuScreen/MenuAndToggle/NinePatchRect/ButtonMargins/ButtonContainer/TopButtonContainer" unique_id=1234245923]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_font_sizes/font_size = 4
 text = "Fast
 Travel"
 
 [node name="EvidenceSheetToggleButton" type="Button" parent="PopupMenu/BaseMenuContainer/BaseMenuScreen/MenuAndToggle/NinePatchRect/ButtonMargins/ButtonContainer/TopButtonContainer" unique_id=758070594]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 4
 text = "Evidence
 Menu"
 
 [node name="SettingsToggleButton" type="Button" parent="PopupMenu/BaseMenuContainer/BaseMenuScreen/MenuAndToggle/NinePatchRect/ButtonMargins/ButtonContainer/TopButtonContainer" unique_id=178474175]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
-text = "Settings"
+theme_override_font_sizes/font_size = 4
+text = "???"
 
 [node name="BaseMenuSeperator" type="Control" parent="PopupMenu/BaseMenuContainer" unique_id=1773759916]
 layout_mode = 2
@@ -109,13 +116,14 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
-theme_override_constants/separation = 23
+theme_override_constants/separation = 5
 
 [node name="ToggleMenuButton" type="Button" parent="PopupMenu/BaseMenuButtonContainer" unique_id=163930132]
-custom_minimum_size = Vector2(100, 20)
+custom_minimum_size = Vector2(40, 8)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_font_sizes/font_size = 4
 text = "Open Menu"
 
 [node name="BaseMenuSeperator" type="Control" parent="PopupMenu/BaseMenuButtonContainer" unique_id=936704674]
@@ -128,7 +136,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="NinePatchRect" type="NinePatchRect" parent="PopupMenu/FastTravelContainer" unique_id=1486498909]
-custom_minimum_size = Vector2(600, 750)
+custom_minimum_size = Vector2(120, 150)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -139,18 +147,25 @@ patch_margin_top = 8
 patch_margin_right = 8
 patch_margin_bottom = 8
 
-[node name="TravelToTitleContainer" type="HBoxContainer" parent="PopupMenu/FastTravelContainer" unique_id=1085780809]
+[node name="TravelToTitleSpacingContainer" type="VBoxContainer" parent="PopupMenu/FastTravelContainer" unique_id=1700541613]
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_constants/separation = 190
 
-[node name="TravelToSpacing" type="Control" parent="PopupMenu/FastTravelContainer/TravelToTitleContainer" unique_id=2013368069]
+[node name="TravelToTitleSpacing" type="Control" parent="PopupMenu/FastTravelContainer/TravelToTitleSpacingContainer" unique_id=302797329]
 layout_mode = 2
 
-[node name="TravelToDisplay" type="Label" parent="PopupMenu/FastTravelContainer/TravelToTitleContainer" unique_id=426270312]
+[node name="TravelToTitleContainer" type="HBoxContainer" parent="PopupMenu/FastTravelContainer/TravelToTitleSpacingContainer" unique_id=1085780809]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 40
+
+[node name="TravelToSpacing" type="Control" parent="PopupMenu/FastTravelContainer/TravelToTitleSpacingContainer/TravelToTitleContainer" unique_id=2013368069]
+layout_mode = 2
+
+[node name="TravelToDisplay" type="Label" parent="PopupMenu/FastTravelContainer/TravelToTitleSpacingContainer/TravelToTitleContainer" unique_id=426270312]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_27fn8")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 10
 text = "Travel to:"
 
 [node name="TravelToToggleButtonContainer" type="VBoxContainer" parent="PopupMenu/FastTravelContainer" unique_id=1548737891]
@@ -160,20 +175,21 @@ size_flags_vertical = 0
 
 [node name="TravelToToggleButtonMarginContainer" type="MarginContainer" parent="PopupMenu/FastTravelContainer/TravelToToggleButtonContainer" unique_id=153402184]
 layout_mode = 2
-theme_override_constants/margin_top = -75
-theme_override_constants/margin_right = -75
+theme_override_constants/margin_top = -25
+theme_override_constants/margin_right = -25
 
 [node name="TravelToToggleButton" type="Button" parent="PopupMenu/FastTravelContainer/TravelToToggleButtonContainer/TravelToToggleButtonMarginContainer" unique_id=685163152]
-custom_minimum_size = Vector2(75, 75)
+custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_font_sizes/font_size = 5
 text = "Close"
 
 [node name="TravelToPlacesMarginContainer" type="MarginContainer" parent="PopupMenu/FastTravelContainer" unique_id=1358148346]
 layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 60
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 20
 
 [node name="TravelToPlacesContainer" type="VBoxContainer" parent="PopupMenu/FastTravelContainer/TravelToPlacesMarginContainer" unique_id=975404049]
 layout_mode = 2
@@ -182,21 +198,21 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("3_27fn8")
-theme_override_font_sizes/font_size = 35
+theme_override_font_sizes/font_size = 4
 text = "W.E.B's Office"
 
 [node name="TravelToPoliceStationCorridor" type="Button" parent="PopupMenu/FastTravelContainer/TravelToPlacesMarginContainer/TravelToPlacesContainer" unique_id=1024586951]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("3_27fn8")
-theme_override_font_sizes/font_size = 35
+theme_override_font_sizes/font_size = 4
 text = "Police Station"
 
 [node name="TravelToMorgue" type="Button" parent="PopupMenu/FastTravelContainer/TravelToPlacesMarginContainer/TravelToPlacesContainer" unique_id=526544981]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("3_27fn8")
-theme_override_font_sizes/font_size = 35
+theme_override_font_sizes/font_size = 4
 text = "Morgue"
 
 [node name="EvidenceMenuAndButtonsContainer" type="HBoxContainer" parent="PopupMenu" unique_id=283235307]
@@ -204,13 +220,14 @@ visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/separation = 20
+theme_override_constants/separation = 5
 
 [node name="EvidenceMenuLeftButton" type="Button" parent="PopupMenu/EvidenceMenuAndButtonsContainer" unique_id=736985107]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_font_sizes/font_size = 5
 text = "Left
 Button"
 
@@ -220,7 +237,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="EvidencePage0" type="NinePatchRect" parent="PopupMenu/EvidenceMenuAndButtonsContainer/EvidenceMenuContainer" unique_id=310539816]
-custom_minimum_size = Vector2(600, 750)
+custom_minimum_size = Vector2(120, 150)
 layout_mode = 2
 texture = ExtResource("1_fyqef")
 region_rect = Rect2(831, 231, 54, 46)
@@ -229,9 +246,34 @@ patch_margin_top = 8
 patch_margin_right = 8
 patch_margin_bottom = 8
 
+[node name="Label" type="Label" parent="PopupMenu/EvidenceMenuAndButtonsContainer/EvidenceMenuContainer/EvidencePage0" unique_id=425567471]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.418
+anchor_top = 0.527
+anchor_right = 0.707
+anchor_bottom = 0.744
+offset_left = -43.16
+offset_top = -11.050003
+offset_right = 26.159996
+offset_bottom = 26.399994
+theme_override_font_sizes/font_size = 8
+text = "Evidence text"
+
+[node name="Evidence0texture" type="TextureRect" parent="PopupMenu/EvidenceMenuAndButtonsContainer/EvidenceMenuContainer/EvidencePage0" unique_id=839602490]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.554
+anchor_right = 0.5
+anchor_bottom = 0.554
+offset_left = -48.0
+offset_top = -72.100006
+offset_bottom = -27.100006
+
 [node name="EvidencePage1" type="NinePatchRect" parent="PopupMenu/EvidenceMenuAndButtonsContainer/EvidenceMenuContainer" unique_id=972062390]
 visible = false
-custom_minimum_size = Vector2(600, 750)
+custom_minimum_size = Vector2(120, 150)
 layout_mode = 2
 texture = ExtResource("1_fyqef")
 region_rect = Rect2(399, 375, 158, 142)
@@ -247,19 +289,22 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
-theme_override_constants/margin_top = -75
-theme_override_constants/margin_right = -75
+theme_override_constants/margin_top = -25
+theme_override_constants/margin_right = -25
 
 [node name="EvidenceSheetToggleButton" type="Button" parent="PopupMenu/EvidenceMenuAndButtonsContainer/EvidenceMenuContainer/EvidenceMenuToggleButtonContainer/EvidenceMenuToggleButtonMarginContainer" unique_id=577555798]
-custom_minimum_size = Vector2(75, 75)
+custom_minimum_size = Vector2(25, 25)
+custom_maximum_size = Vector2(25, 25)
 layout_mode = 2
+theme_override_font_sizes/font_size = 5
 text = "Close"
 
 [node name="EvidenceMenuRightButton" type="Button" parent="PopupMenu/EvidenceMenuAndButtonsContainer" unique_id=1431923547]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_font_sizes/font_size = 5
 text = "Right
 Button"
 

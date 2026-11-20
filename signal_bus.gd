@@ -1,0 +1,4 @@
+extends Node
+
+signal entering_police_from_exterior
+signal entering_police_from_office

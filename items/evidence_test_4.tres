@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="EvidenceItem" format=3 uid="uid://brpne7krij1sh"]
+
+[ext_resource type="Texture2D" uid="uid://bl543a1bgvpq8" path="res://Item_Sprites/Magnifying_glass.png" id="1_5a6wh"]
+[ext_resource type="Script" uid="uid://dkbitfne8d4de" path="res://Scripts/Evidence/Evidence_item.gd" id="2_amr5e"]
+
+[resource]
+script = ExtResource("2_amr5e")
+id = "magnifying"
+item_name = "Magnifying glass"
+description = "your magnifying glass"
+icon = ExtResource("1_5a6wh")
+metadata/_custom_type_script = "uid://dkbitfne8d4de"

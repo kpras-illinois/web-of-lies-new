@@ -34,19 +34,19 @@ mouse_filter = 2
 
 [node name="Label" type="Label" parent="InstructionUI/Instruction"]
 layout_mode = 1
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -400.0
-offset_top = 24.0
-offset_right = 400.0
+anchor_right = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
 offset_bottom = 56.0
 grow_horizontal = 2
 mouse_filter = 2
 text = "Click the icon or press E nearby. Esc closes the drawer."
+autowrap_mode = 2
 horizontal_alignment = 1
 
 [node name="OpenDrawer" type="Area2D" parent="." node_paths=PackedStringArray("fixed_object")]
-position = Vector2(980, 600)
+position = Vector2(920, 600)
 collision_layer = 2
 collision_mask = 0
 input_pickable = true
@@ -60,9 +60,10 @@ shape = SubResource("RectangleShape2D_opener")
 [node name="Sprite2D" type="Sprite2D" parent="OpenDrawer"]
 texture = ExtResource("4_icon")
 
-[node name="FixedObject" type="CanvasLayer" parent="."]
+[node name="FixedObject" type="CanvasLayer" parent="." node_paths=PackedStringArray("content")]
 layer = 20
 script = ExtResource("1_camera")
+content = NodePath("Screen/Drawer")
 start_open = false
 close_on_cancel = true
 
