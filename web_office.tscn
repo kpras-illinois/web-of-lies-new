@@ -6,6 +6,11 @@
 [ext_resource type="Script" uid="uid://6l2sqcr1jyql" path="res://test_door.gd" id="4_jb0ai"]
 [ext_resource type="PackedScene" uid="uid://bki124eqmpcqg" path="res://ui.tscn" id="5_vl682"]
 [ext_resource type="AudioStream" uid="uid://cm4q1xmsur701" path="res://Background_Music/MP3 Tutorial Music.mp3" id="6_0syv5"]
+[ext_resource type="Texture2D" uid="uid://bgf7ctcffkud" path="res://Interactive_Sprite/tutorial_drawer.png" id="7_jb0ai"]
+[ext_resource type="Texture2D" uid="uid://capa28is2vu2l" path="res://Interactive_Sprite/tutorial_drawer_clickables.png" id="8_vl682"]
+[ext_resource type="Script" path="res://OpenFixedObjectInteractable.gd" id="9_opener"]
+[ext_resource type="Script" path="res://CameraFixedObject.gd" id="10_overlay"]
+[ext_resource type="Script" path="res://MouseClickControl.gd" id="11_click"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_60qff"]
 size = Vector2(401, 1218)
@@ -15,6 +20,12 @@ size = Vector2(784, 1359)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7eu7v"]
 size = Vector2(964, 1432)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bhunq"]
+size = Vector2(368, 224)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_proximity"]
+size = Vector2(368, 128)
 
 [node name="WebOffice" type="Node2D" unique_id=1668433638]
 script = ExtResource("1_v504c")
@@ -48,6 +59,10 @@ shape = SubResource("RectangleShape2D_60qff")
 [node name="UICanvasLayer" type="CanvasLayer" parent="." unique_id=794855588]
 
 [node name="UI" parent="UICanvasLayer" unique_id=1540289603 instance=ExtResource("5_vl682")]
+mouse_filter = 2
+
+[node name="PopupMenu" parent="UICanvasLayer/UI" index="0"]
+mouse_filter = 2
 
 [node name="WebOfficeAudio" type="AudioStreamPlayer" parent="." unique_id=945576119]
 stream = ExtResource("6_0syv5")
@@ -65,5 +80,162 @@ shape = SubResource("RectangleShape2D_78qyl")
 position = Vector2(5681, 551)
 shape = SubResource("RectangleShape2D_7eu7v")
 
+[node name="DrawerInteractable" type="Area2D" parent="." node_paths=PackedStringArray("fixed_object")]
+position = Vector2(1717, 1024)
+collision_layer = 2
+collision_mask = 0
+input_pickable = true
+script = ExtResource("9_opener")
+interaction_name = "Open drawer"
+fixed_object = NodePath("../DrawerOverlay")
+
+[node name="Sprite2D2" type="Sprite2D" parent="DrawerInteractable" unique_id=1416188671]
+texture = ExtResource("2_v504c")
+region_enabled = true
+region_rect = Rect2(600.40955, 1680.3063, 355.46167, 200.60706)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DrawerInteractable" unique_id=159282456]
+position = Vector2(1, -8)
+shape = SubResource("RectangleShape2D_bhunq")
+
+[node name="Proximity" type="Area2D" parent="DrawerInteractable" node_paths=PackedStringArray("fixed_object")]
+position = Vector2(0, -424)
+collision_layer = 2
+collision_mask = 0
+input_pickable = false
+script = ExtResource("9_opener")
+interaction_name = "Open drawer"
+fixed_object = NodePath("../../DrawerOverlay")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DrawerInteractable/Proximity"]
+shape = SubResource("RectangleShape2D_proximity")
+
+[node name="DrawerOverlay" type="CanvasLayer" parent="."]
+layer = 20
+visible = false
+script = ExtResource("10_overlay")
+start_open = false
+close_on_cancel = true
+
+[node name="Screen" type="Control" parent="DrawerOverlay"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+
+[node name="Backdrop" type="ColorRect" parent="DrawerOverlay/Screen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+color = Color(0, 0, 0, 0.45)
+
+[node name="Drawer" type="Control" parent="DrawerOverlay/Screen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -300.0
+offset_right = 480.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+
+[node name="Background" type="TextureRect" parent="DrawerOverlay/Screen/Drawer" unique_id=594364220]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("7_jb0ai")
+expand_mode = 1
+
+[node name="Foreground" type="TextureRect" parent="DrawerOverlay/Screen/Drawer" unique_id=368449806]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("8_vl682")
+expand_mode = 1
+
+[node name="Item1" type="Control" parent="DrawerOverlay/Screen/Drawer" unique_id=1326709690]
+layout_mode = 1
+offset_left = 470.0
+offset_top = 139.23215
+offset_right = 842.24234
+offset_bottom = 471.7863
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+script = ExtResource("11_click")
+
+[node name="Item2" type="Control" parent="DrawerOverlay/Screen/Drawer" unique_id=1288440795]
+layout_mode = 1
+offset_left = 177.56781
+offset_top = 231.39392
+offset_right = 342.2785
+offset_bottom = 336.55255
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+script = ExtResource("11_click")
+
+[node name="Item3" type="Control" parent="DrawerOverlay/Screen/Drawer" unique_id=1508108705]
+layout_mode = 1
+offset_left = 92.29659
+offset_top = 371.6194
+offset_right = 236.38347
+offset_bottom = 464.77463
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+script = ExtResource("11_click")
+
+[node name="Item4" type="Control" parent="DrawerOverlay/Screen/Drawer" unique_id=44167867]
+layout_mode = 1
+offset_left = 191.74503
+offset_top = 430.21707
+offset_right = 674.43036
+offset_bottom = 536.88654
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+script = ExtResource("11_click")
+
+[node name="CloseButton" type="Button" parent="DrawerOverlay/Screen/Drawer"]
+layout_mode = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -96.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 48.0
+text = "Close"
+
+[node name="Hint" type="Label" parent="DrawerOverlay/Screen/Drawer"]
+layout_mode = 1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 8.0
+offset_bottom = 40.0
+mouse_filter = 2
+text = "Esc to close"
+horizontal_alignment = 1
+
 [connection signal="body_entered" from="TestDoorRoom1" to="TestDoorRoom1" method="_on_body_entered"]
 [connection signal="body_exited" from="TestDoorRoom1" to="TestDoorRoom1" method="_on_body_exited"]
+[connection signal="pressed" from="DrawerOverlay/Screen/Drawer/CloseButton" to="DrawerOverlay" method="close"]
+
+[editable path="UICanvasLayer/UI"]

@@ -1,19 +1,27 @@
 class_name InteractableM
-extends Area2D
+extends Interactable
+
+# Connect clicked for mouse-only callbacks; override _interact(actor) for E and mouse.
+signal clicked
 
 @export var test_output: String = "Hello"
 
 
-func interact() -> void:
+func _interact(_actor: Node) -> void:
 	print(test_output)
 
 
 func _input_event(
-	_viewport: Viewport,
+	viewport: Viewport,
 	event: InputEvent,
 	_shape_idx: int
 ) -> void:
 	if event is InputEventMouseButton \
 			and event.button_index == MOUSE_BUTTON_LEFT \
 			and event.pressed:
+		if not interaction_enabled:
+			return
+		viewport.set_input_as_handled()
 		interact()
+		if is_instance_valid(self):
+			clicked.emit()

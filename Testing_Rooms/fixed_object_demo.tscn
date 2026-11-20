@@ -1,0 +1,115 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://CameraFixedObject.gd" id="1_camera"]
+[ext_resource type="Script" path="res://OpenFixedObjectInteractable.gd" id="2_opener"]
+[ext_resource type="Texture2D" path="res://Interactive_Sprite/tutorial_drawer.png" id="3_drawer"]
+[ext_resource type="Texture2D" path="res://icon.svg" id="4_icon"]
+[ext_resource type="PackedScene" path="res://player.tscn" id="5_player"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_opener"]
+size = Vector2(128, 128)
+
+[node name="FixedObjectDemo" type="Node2D"]
+
+[node name="PlayerCamera" type="Camera2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("5_player")]
+
+[node name="PlayerCameraRemote" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../PlayerCamera")
+update_rotation = false
+update_scale = false
+
+[node name="InstructionUI" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="Instruction" type="Control" parent="InstructionUI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="InstructionUI/Instruction"]
+layout_mode = 1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -400.0
+offset_top = 24.0
+offset_right = 400.0
+offset_bottom = 56.0
+grow_horizontal = 2
+mouse_filter = 2
+text = "Click the icon or press E nearby. Esc closes the drawer."
+horizontal_alignment = 1
+
+[node name="OpenDrawer" type="Area2D" parent="." node_paths=PackedStringArray("fixed_object")]
+position = Vector2(980, 600)
+collision_layer = 2
+collision_mask = 0
+input_pickable = true
+script = ExtResource("2_opener")
+fixed_object = NodePath("../FixedObject")
+interaction_name = "Open drawer"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OpenDrawer"]
+shape = SubResource("RectangleShape2D_opener")
+
+[node name="Sprite2D" type="Sprite2D" parent="OpenDrawer"]
+texture = ExtResource("4_icon")
+
+[node name="FixedObject" type="CanvasLayer" parent="."]
+layer = 20
+script = ExtResource("1_camera")
+start_open = false
+close_on_cancel = true
+
+[node name="Screen" type="Control" parent="FixedObject"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+
+[node name="Backdrop" type="ColorRect" parent="FixedObject/Screen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+color = Color(0, 0, 0, 0.45)
+
+[node name="Drawer" type="TextureRect" parent="FixedObject/Screen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -300.0
+offset_right = 480.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+texture = ExtResource("3_drawer")
+expand_mode = 1
+
+[node name="CloseButton" type="Button" parent="FixedObject/Screen/Drawer"]
+layout_mode = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -96.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 48.0
+text = "Close"
+
+[connection signal="pressed" from="FixedObject/Screen/Drawer/CloseButton" to="FixedObject" method="close"]
